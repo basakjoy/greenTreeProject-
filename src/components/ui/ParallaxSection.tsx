@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState, ReactNode } from 'react';
+import React, { useRef, useEffect, ReactNode } from 'react';
 
 interface ParallaxSectionProps {
   children: ReactNode;
@@ -14,45 +14,86 @@ interface ParallaxSectionProps {
  */
 export function ParallaxSection({ children, speed = 0.08, className }: ParallaxSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
-  const rafId = useRef<number>(0);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    const content = contentRef.current;
+    if (!el || !content) return;
 
     let visible = false;
+    let targetOffset = 0;
+    let currentOffset = 0;
+    let rafId = 0;
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const updateTransform = (offset: number) => {
+      content.style.transform = `translate3d(0, ${offset}px, 0)`;
+    };
+
+    const animate = () => {
+      currentOffset += (targetOffset - currentOffset) * 0.12;
+
+      if (Math.abs(targetOffset - currentOffset) < 0.1) {
+        currentOffset = targetOffset;
+        updateTransform(currentOffset);
+        rafId = 0;
+        return;
+      }
+
+      updateTransform(currentOffset);
+      rafId = requestAnimationFrame(animate);
+    };
+
+    const scheduleAnimation = () => {
+      if (!rafId) rafId = requestAnimationFrame(animate);
+    };
+
+    const onScroll = () => {
+      if (!visible || motionPreference.matches) return;
+
+      const rect = el.getBoundingClientRect();
+      const centre = rect.top + rect.height / 2 - window.innerHeight / 2;
+      targetOffset = centre * speed;
+      scheduleAnimation();
+    };
 
     const observer = new IntersectionObserver(
-      ([entry]) => { visible = entry.isIntersecting; },
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) onScroll();
+      },
       { rootMargin: '100px 0px' },
     );
     observer.observe(el);
 
-    const onScroll = () => {
-      if (!visible || !el) return;
-      cancelAnimationFrame(rafId.current);
-      rafId.current = requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        // Distance from centre of element to centre of viewport
-        const centre = rect.top + rect.height / 2 - window.innerHeight / 2;
-        setOffset(centre * speed);
-      });
+    const onMotionPreferenceChange = () => {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+      if (motionPreference.matches) {
+        targetOffset = 0;
+        currentOffset = 0;
+        updateTransform(0);
+      } else {
+        onScroll();
+      }
     };
 
+    if (motionPreference.matches) updateTransform(0);
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // init
+    motionPreference.addEventListener('change', onMotionPreferenceChange);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
+      motionPreference.removeEventListener('change', onMotionPreferenceChange);
       observer.disconnect();
-      cancelAnimationFrame(rafId.current);
+      cancelAnimationFrame(rafId);
     };
   }, [speed]);
 
   return (
-    <div ref={ref} className={className} style={{ willChange: 'transform' }}>
-      <div style={{ transform: `translateY(${offset}px)`, willChange: 'transform' }}>
+    <div ref={ref} className={className}>
+      <div ref={contentRef} style={{ willChange: 'transform' }}>
         {children}
       </div>
     </div>

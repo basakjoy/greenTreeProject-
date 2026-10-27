@@ -7,8 +7,32 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '120rem',
+      '4xl': '160rem',
+    },
     extend: {
+      fontSize: {
+        hero: 'clamp(2.5rem, 1.2rem + 5vw, 6.5rem)',
+        h2: 'clamp(1.75rem, 1.2rem + 2vw, 3.5rem)',
+        h3: 'clamp(1.25rem, 1rem + 1vw, 2rem)',
+        body: 'clamp(1rem, 0.95rem + 0.25vw, 1.25rem)',
+      },
+      spacing: {
+        section: 'clamp(4rem, 3rem + 5vw, 10rem)',
+        gutter: 'clamp(1rem, 4vw, 4rem)',
+      },
       colors: {
+        brand: {
+          forest: '#0E241B',
+          offwhite: '#F7F9F6',
+          accent: '#22C55E',
+        },
         forest: {
           50: '#F2F8F5',
           100: '#E1EFE8',

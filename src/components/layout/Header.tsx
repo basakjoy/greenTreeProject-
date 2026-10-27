@@ -191,7 +191,7 @@ export function Header() {
                       <span>{item.label}</span>
 
                       {item.badge && (
-                        <span className="ml-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-black tracking-wider bg-eco text-forest-950 leading-none">
+                        <span className="ml-0.5 px-1.5 py-1 rounded-full text-[9px] font-black tracking-wider bg-eco text-forest-950 leading-none">
                           {item.badge}
                         </span>
                       )}

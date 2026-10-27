@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Green Tree Building Consultants Ltd.' }],
   creator: 'Green Tree Building Consultants Ltd.',
+  icons: {
+    icon: '/images/logo/green-tree-logo.png',
+    shortcut: '/images/logo/green-tree-logo.png',
+    apple: '/images/logo/green-tree-logo.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

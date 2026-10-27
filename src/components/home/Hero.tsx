@@ -38,15 +38,74 @@ export function Hero() {
   const [next,    setNext]        = useState<number | null>(null); // slide being faded in
   const [transitioning, setTransitioning] = useState(false);
 
-  // Parallax
-  const [scrollY, setScrollY]     = useState(0);
-  const sectionRef                = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  // Scroll listener — drives parallax
   useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
+    const section = sectionRef.current;
+    const background = backgroundRef.current;
+    const title = titleRef.current;
+    const card = cardRef.current;
+    if (!section || !background || !title || !card) return;
+
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let targetScroll = 0;
+    let currentScroll = 0;
+    let animationFrame = 0;
+
+    const updateTransforms = (scroll: number) => {
+      background.style.transform = `translate3d(0, ${scroll * 0.35}px, 0)`;
+      title.style.transform = `translate3d(0, ${scroll * 0.2}px, 0)`;
+      card.style.transform = `translate3d(0, ${scroll * 0.12}px, 0)`;
+    };
+
+    const animate = () => {
+      currentScroll += (targetScroll - currentScroll) * 0.12;
+      updateTransforms(currentScroll);
+
+      if (Math.abs(targetScroll - currentScroll) < 0.1) {
+        currentScroll = targetScroll;
+        updateTransforms(currentScroll);
+        animationFrame = 0;
+        return;
+      }
+
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    const onScroll = () => {
+      if (motionPreference.matches) return;
+
+      targetScroll = Math.min(window.scrollY, section.offsetHeight);
+      if (!animationFrame) animationFrame = requestAnimationFrame(animate);
+    };
+
+    const onMotionPreferenceChange = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+      if (motionPreference.matches) {
+        targetScroll = 0;
+        currentScroll = 0;
+        updateTransforms(0);
+      } else {
+        onScroll();
+      }
+    };
+
+    updateTransforms(motionPreference.matches ? 0 : Math.min(window.scrollY, section.offsetHeight));
+    currentScroll = targetScroll = motionPreference.matches
+      ? 0
+      : Math.min(window.scrollY, section.offsetHeight);
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    motionPreference.addEventListener('change', onMotionPreferenceChange);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      motionPreference.removeEventListener('change', onMotionPreferenceChange);
+      cancelAnimationFrame(animationFrame);
+    };
   }, []);
 
   // Smooth slide transition
@@ -73,11 +132,6 @@ export function Hero() {
     return () => clearInterval(timer);
   }, [current, goTo]);
 
-  // Parallax factors (text travels slower than scroll → depth illusion)
-  const parallaxBg   = scrollY * 0.35; // bg image scrolls at 35%
-  const parallaxText = scrollY * 0.20; // text travels at 20% (very gentle)
-  const parallaxCard = scrollY * 0.12; // card barely moves
-
   return (
     <section
       ref={sectionRef}
@@ -86,8 +140,8 @@ export function Hero() {
     >
       {/* ─── BACKGROUND SLIDESHOW ─────────────────────────────────────────── */}
       <div
+        ref={backgroundRef}
         className="absolute inset-0 z-0 will-change-transform"
-        style={{ transform: `translateY(${parallaxBg}px)` }}
       >
         {/* Current slide (always visible) */}
         {heroSlides.map((slide, i) => (
@@ -154,8 +208,9 @@ export function Hero() {
 
         {/* ── GIANT BRAND TYPOGRAPHY (parallax-driven) ── */}
         <div
+          ref={titleRef}
           className="w-full overflow-hidden select-none"
-          style={{ transform: `translateY(${parallaxText}px)`, willChange: 'transform' }}
+          style={{ willChange: 'transform' }}
         >
           {/*
             Inspired by the reference: enormous text that bleeds off the right edge.
@@ -228,8 +283,9 @@ export function Hero() {
 
         {/* ── BOTTOM CONTENT ROW ── */}
         <div
+          ref={cardRef}
           className="w-full px-5 sm:px-10 lg:px-14 xl:px-20 flex flex-col md:flex-row md:items-end justify-between gap-8 mt-auto pt-12"
-          style={{ transform: `translateY(${parallaxCard}px)`, willChange: 'transform' }}
+          style={{ willChange: 'transform' }}
         >
           {/* Left: headline + CTA + sub-labels */}
           <div className="max-w-sm">
@@ -293,6 +349,24 @@ export function Hero() {
               <p className="text-xs text-slate-600 font-medium leading-relaxed mb-4">
                 clients have already received our net-zero certification worldwide.
               </p>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3].map((portrait) => (
+                    <Image
+                      key={portrait}
+                      src={`/images/clients/client-portrait-${portrait}.jpg`}
+                      alt={`Client portrait ${portrait}`}
+                      width={40}
+                      height={40}
+                      sizes="40px"
+                      className="h-10 w-10 rounded-full border-2 border-white object-cover"
+                    />
+                  ))}
+                </div>
+                <span className="text-[11px] font-semibold text-slate-500">
+                  Our client partners
+                </span>
+              </div>
               {/* Progress bar animation */}
               <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
                 <div

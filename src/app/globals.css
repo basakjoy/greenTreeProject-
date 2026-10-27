@@ -5,6 +5,15 @@
 :root {
   --background: #f7f9f6;
   --foreground: #0e241b;
+  --color-brand-forest: #0e241b;
+  --color-brand-offwhite: #f7f9f6;
+  --color-brand-accent: #22c55e;
+  --text-hero: clamp(2.5rem, 1.2rem + 5vw, 6.5rem);
+  --text-h2: clamp(1.75rem, 1.2rem + 2vw, 3.5rem);
+  --text-h3: clamp(1.25rem, 1rem + 1vw, 2rem);
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  --spacing-section: clamp(4rem, 3rem + 5vw, 10rem);
+  --spacing-gutter: clamp(1rem, 4vw, 4rem);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,8 +24,34 @@
 }
 
 html {
+  font-size: 100%;
   scroll-behavior: smooth;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -38,7 +73,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-sans), system-ui, sans-serif;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,8 +88,10 @@ body {
   background: #265743;
   border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #347057;
+@media (hover: hover) {
+  ::-webkit-scrollbar-thumb:hover {
+    background: #347057;
+  }
 }
 
 /* Glassmorphism utility */
