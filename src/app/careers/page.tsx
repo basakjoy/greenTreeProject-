@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPublishedJobs, FALLBACK_JOBS } from '@/server/services/jobs';
-import { Briefcase, MapPin, Clock, ArrowUpRight, Leaf, Award, ChevronRight } from 'lucide-react';
+import { Briefcase, MapPin, Clock, ArrowUpRight, Sparkles, Award, ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Careers | Green Tree Building Consultants',
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     url: 'https://www.greentreebd.com/careers',
   },
 };
+
+export const revalidate = 3600;
 
 // ─── Small helpers ────────────────────────────────────────────────────────────
 function daysUntil(date: Date | string | null): string {
@@ -34,178 +36,230 @@ function formatSalary(min: number | null, max: number | null): string {
 }
 
 const PERKS = [
-  { icon: '🌿', title: 'Sustainability-first culture', desc: 'Every project advances Bangladesh\'s green-building transition.' },
-  { icon: '🎓', title: 'Sponsored credentials', desc: 'LEED AP, EDGE Expert, WELL AP exam fees covered by GTBC.' },
-  { icon: '🏥', title: 'Comprehensive healthcare', desc: 'Family medical, hospitalization, and life insurance from Day 1.' },
-  { icon: '⏱️', title: 'Flexible hybrid model', desc: 'Mix of office collaboration and remote deep-work days.' },
-  { icon: '📈', title: 'Performance bonuses', desc: 'Project-completion and annual profit-sharing bonuses.' },
-  { icon: '🌍', title: 'International exposure', desc: 'Work alongside global sustainability networks and GBCI auditors.' },
+  {
+    icon: '🌿',
+    title: 'Sustainability-First Culture',
+    desc: 'Every project directly advances Bangladesh’s green-building transition and net-zero engineering.',
+  },
+  {
+    icon: '🎓',
+    title: 'Sponsored Professional Credentials',
+    desc: 'LEED AP, EDGE Expert, and WELL AP exam registration & preparation fees fully covered by GTBC.',
+  },
+  {
+    icon: '🏥',
+    title: 'Comprehensive Healthcare',
+    desc: 'Family medical, hospitalization, and life insurance benefits active from Day 1 of joining.',
+  },
+  {
+    icon: '⏱️',
+    title: 'Flexible Hybrid Practice',
+    desc: 'A healthy balance of vibrant in-studio architectural collaboration and quiet remote deep-work days.',
+  },
+  {
+    icon: '📈',
+    title: 'Milestone & Profit Bonuses',
+    desc: 'Project-completion milestone incentives and annual studio profit-sharing bonuses for all staff.',
+  },
+  {
+    icon: '🌍',
+    title: 'International Network & GBCI Audits',
+    desc: 'Collaborate directly with global green-building certification bodies, regional partners, and auditors.',
+  },
 ];
 
-// ─── Page component ──────────────────────────────────────────────────────────
 export default async function CareersPage() {
   let jobs = await getPublishedJobs();
   if (!jobs || jobs.length === 0) jobs = FALLBACK_JOBS;
 
-  const departments = ['All', ...Array.from(new Set(jobs.map((j) => j.department)))];
-
   return (
-    <>
-      {/* ── Hero ── */}
-      <section className="relative pt-36 pb-24 bg-gradient-to-br from-slate-950 via-forest-950 to-slate-950 overflow-hidden">
-        {/* Decorative grid */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(34,197,94,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.4) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-          }}
-        />
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-8 text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-eco/10 border border-eco/30 text-eco text-xs font-bold tracking-widest uppercase mb-6">
-            <Leaf className="w-3.5 h-3.5" /> We&rsquo;re Hiring
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
-            Build a Greener Future<br className="hidden sm:block" />
-            <span className="text-eco"> With Us</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
-            Green Tree Building Consultants is Bangladesh&rsquo;s leading sustainability advisory firm.
-            Join a passionate studio of architects, engineers, and green-building experts shaping
-            the country&rsquo;s built environment.
-          </p>
-          <a
-            href="#open-positions"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-emerald-400 transition-colors shadow-lg"
-          >
-            View Open Positions <ChevronRight className="w-4 h-4" />
-          </a>
+    <div className="pt-24 pb-20">
+      
+      {/* ── 1. Header Banner (Consistent with About / Services / Contact) ── */}
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+        <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
+          {/* Ambient eco glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900 border border-forest-750 text-xs font-bold text-eco mb-5 uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Talent &amp; Studio Careers</span>
+            </div>
+
+            <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.08] uppercase mb-6">
+              Build a Greener Future With Us
+            </h1>
+
+            <p className="text-base sm:text-lg text-gray-200 leading-relaxed font-normal mb-8">
+              Green Tree Building Consultants is Bangladesh’s leading sustainability advisory and net-zero engineering consultancy. Join our dedicated multidisciplinary studio of architects, engineers, and green-building specialists shaping the nation’s built environment.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#open-positions"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-emerald-400 transition-all shadow-glow"
+              >
+                <span>View Open Positions</span>
+                <ChevronRight className="w-4 h-4" />
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-forest-900/80 border border-forest-750 text-white font-bold text-sm hover:bg-forest-800 transition-all"
+              >
+                <span>Send Open Application</span>
+                <ArrowUpRight className="w-4 h-4 text-eco" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── Perks ── */}
-      <section className="py-20 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <h2 className="text-2xl sm:text-3xl font-black text-forest-950 text-center mb-12 tracking-tight">
-            Why Join Green Tree?
+      {/* ── 2. Studio Culture & Perks ── */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+        <div className="mb-8">
+          <span className="text-xs font-bold text-eco uppercase tracking-widest">
+            Studio Culture &amp; Benefits
+          </span>
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-forest-950 mt-1">
+            Why Practice at Green Tree?
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PERKS.map((perk) => (
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {PERKS.map((perk, i) => (
+            <div
+              key={perk.title}
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-subtle hover:shadow-lift hover:border-eco/40 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-forest-50 border border-forest-100 flex items-center justify-center text-eco mb-5">
+                  <span className="text-2xl">{perk.icon}</span>
+                </div>
+                <span className="text-[11px] font-bold text-eco uppercase tracking-wider">
+                  Benefit 0{i + 1}
+                </span>
+                <h3 className="font-display font-bold text-lg sm:text-xl text-forest-950 mt-1 mb-2">
+                  {perk.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {perk.desc}
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-forest-100 text-[11px] font-semibold text-forest-800">
+                Green Tree Studio Benefit
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 3. Open Positions List ── */}
+      <section id="open-positions" className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div>
+            <span className="text-xs font-bold text-eco uppercase tracking-widest">
+              Current Openings
+            </span>
+            <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-forest-950 mt-1">
+              Open Positions
+            </h2>
+            <p className="text-sm text-gray-600 mt-1">
+              {jobs.length} available role{jobs.length !== 1 ? 's' : ''} in Dhaka, Bangladesh
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-forest-800 hover:text-eco transition-colors"
+          >
+            <span>Don&rsquo;t see your role? Submit an open application</span>
+            <ArrowUpRight className="w-4 h-4 text-eco" />
+          </Link>
+        </div>
+
+        <div className="space-y-5">
+          {jobs.map((job) => {
+            const closingLabel = daysUntil(job.closesAt);
+            const isClosed = closingLabel === 'Closed';
+
+            return (
               <div
-                key={perk.title}
-                className="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-eco/40 hover:shadow-md transition-all"
+                key={job.slug}
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-subtle hover:shadow-lift hover:border-eco/50 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
               >
-                <span className="text-3xl flex-shrink-0">{perk.icon}</span>
-                <div>
-                  <h3 className="font-bold text-forest-950 mb-1">{perk.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{perk.desc}</p>
+                {/* Job details */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-forest-50 border border-forest-100 text-forest-800">
+                      {job.department}
+                    </span>
+                    {closingLabel && (
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-bold border ${
+                          isClosed
+                            ? 'bg-red-50 text-red-600 border-red-200'
+                            : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        }`}
+                      >
+                        {closingLabel}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-forest-950 mb-2.5 hover:text-eco transition-colors">
+                    {job.title}
+                  </h3>
+
+                  <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-gray-500 mb-3">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-forest-500" />
+                      {job.location}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-forest-500" />
+                      {job.employmentType}
+                    </span>
+                    {(job.salaryMin || job.salaryMax) && (
+                      <span className="flex items-center gap-1.5 font-semibold text-forest-800">
+                        <Briefcase className="w-3.5 h-3.5 text-eco" />
+                        {formatSalary(job.salaryMin, job.salaryMax)}
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
+                    {job.description}
+                  </p>
+                </div>
+
+                {/* Apply Button */}
+                <div className="shrink-0 flex items-center">
+                  {!isClosed ? (
+                    <Link
+                      href={`/careers/${job.slug}`}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-900 text-white text-xs font-bold hover:bg-eco hover:text-forest-950 transition-all shadow-sm"
+                    >
+                      <span>Apply Now</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </Link>
+                  ) : (
+                    <span className="text-xs font-semibold text-gray-400">Position Closed</span>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* ── Open Positions ── */}
-      <section id="open-positions" className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-black text-forest-950 tracking-tight">
-                Open Positions
-              </h2>
-              <p className="text-gray-500 mt-2">
-                {jobs.length} role{jobs.length !== 1 ? 's' : ''} available · Dhaka, Bangladesh
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-bold text-forest-700 hover:text-eco transition-colors"
-            >
-              Don&rsquo;t see your role? Send an open application <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="space-y-4">
-            {jobs.map((job) => {
-              const closingLabel = daysUntil(job.closesAt);
-              const isClosed = closingLabel === 'Closed';
-
-              return (
-                <div
-                  key={job.slug}
-                  className="group bg-white rounded-2xl border border-gray-200 hover:border-eco/50 hover:shadow-lg transition-all overflow-hidden"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 sm:p-8">
-                    {/* Left: info */}
-                    <div className="flex-1 min-w-0">
-                      {/* Department tag */}
-                      <span className="inline-block mb-2 px-2.5 py-0.5 rounded-full bg-eco/10 text-eco text-xs font-bold tracking-wider">
-                        {job.department}
-                      </span>
-                      <h3 className="text-lg sm:text-xl font-bold text-forest-950 mb-3 group-hover:text-forest-700 transition-colors">
-                        {job.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-gray-500">
-                        <span className="flex items-center gap-1.5">
-                          <MapPin className="w-3.5 h-3.5 text-gray-400" />
-                          {job.location}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-gray-400" />
-                          {job.employmentType}
-                        </span>
-                        {(job.salaryMin || job.salaryMax) && (
-                          <span className="flex items-center gap-1.5 font-medium text-forest-700">
-                            <Briefcase className="w-3.5 h-3.5 text-forest-400" />
-                            {formatSalary(job.salaryMin, job.salaryMax)}
-                          </span>
-                        )}
-                      </div>
-                      <p className="mt-3 text-sm text-gray-600 line-clamp-2 leading-relaxed">
-                        {job.description}
-                      </p>
-                    </div>
-
-                    {/* Right: CTA */}
-                    <div className="flex flex-col items-start sm:items-end gap-3 flex-shrink-0">
-                      {closingLabel && (
-                        <span
-                          className={`text-xs font-bold px-3 py-1 rounded-full ${
-                            isClosed
-                              ? 'bg-red-50 text-red-500 border border-red-100'
-                              : 'bg-amber-50 text-amber-600 border border-amber-100'
-                          }`}
-                        >
-                          {closingLabel}
-                        </span>
-                      )}
-                      {!isClosed && (
-                        <Link
-                          href={`/careers/${job.slug}`}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-forest-900 text-white text-sm font-bold hover:bg-eco hover:text-forest-950 transition-all shadow-sm"
-                        >
-                          Apply Now <ArrowUpRight className="w-3.5 h-3.5" />
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Memberships strip ── */}
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
-          <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-4">
+      {/* ── 4. Professional Recognitions ── */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+        <div className="bg-white rounded-3xl p-8 border border-forest-100 shadow-subtle text-center">
+          <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-4">
             Recognised &amp; Registered With
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          </span>
+          <div className="flex flex-wrap justify-center gap-3">
             {['Institute of Architects Bangladesh (IAB)', 'Institute of Engineers Bangladesh (IEB)', 'RAJUK'].map(
               (m) => (
                 <span
@@ -213,7 +267,7 @@ export default async function CareersPage() {
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-950 text-emerald-300 text-xs font-bold border border-forest-800"
                 >
                   <Award className="w-3.5 h-3.5 text-eco" />
-                  {m}
+                  <span>{m}</span>
                 </span>
               ),
             )}
@@ -221,24 +275,28 @@ export default async function CareersPage() {
         </div>
       </section>
 
-      {/* ── CTA bottom ── */}
-      <section className="py-20 bg-gradient-to-br from-forest-950 via-forest-900 to-forest-950">
-        <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 tracking-tight">
-            Don&rsquo;t See Your Role?
-          </h2>
-          <p className="text-gray-300 mb-8 leading-relaxed">
-            We&rsquo;re always looking for talented architects, engineers, and sustainability specialists.
-            Send us your CV and a brief note — we&rsquo;d love to connect.
-          </p>
+      {/* ── 5. Bottom CTA Banner (Consistent with About / Services) ── */}
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+        <div className="p-8 sm:p-12 rounded-3xl bg-forest-950 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="max-w-xl relative z-10">
+            <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase">
+              Don&rsquo;t See Your Exact Role?
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed">
+              We&rsquo;re always looking for exceptional architects, building physics modelers, facade engineers, and LEED specialists. Send us your CV and portfolio.
+            </p>
+          </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-emerald-400 transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-eco-400 transition-all shadow-glow shrink-0 relative z-10"
           >
-            Send Open Application <ArrowUpRight className="w-4 h-4" />
+            <span>Send Open Application</span>
+            <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
-    </>
+
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors.js';
 
 const config: Config = {
   content: [
@@ -72,7 +73,11 @@ const config: Config = {
         'void-black': '#000000',
         carbon: '#0d0d0f',
         graphite: '#232529',
-        slate: '#2b2f33',
+        slate: {
+          ...colors.slate,
+          DEFAULT: '#2b2f33',
+        },
+        'color-slate': '#2b2f33',
         iron: '#41464c',
         steel: '#565e66',
         fog: '#6c757f',
