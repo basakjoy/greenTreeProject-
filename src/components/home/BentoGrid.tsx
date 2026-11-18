@@ -7,17 +7,17 @@ import { ArrowUpRight, Compass, Users2, Calculator, ChevronRight } from 'lucide-
 
 export function BentoGrid() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
         <span className="text-xs font-bold text-eco uppercase tracking-widest">
           Exclusive Consultancy & Studio Process
         </span>
         <h2 className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl text-forest-950 tracking-tight mt-1">
-          &ldquo;Design is Everything&rdquo; — Passion for Timeless Functionality
+          &ldquo;Design is Everything&rdquo;  Passion for Timeless Functionality
         </h2>
         <p className="mt-3 text-sm sm:text-base text-gray-600 font-medium">
-          A design-driven consultancy passionate about creating spaces that are not only functional but also aesthetically timeless. From the first spark of inspiration to the final execution, every detail matters.
+          A design driven consultancy passionate about creating spaces that are not only functional but also aesthetically timeless. From the first spark of inspiration to the final execution, every detail matters.
         </p>
       </div>
 
@@ -93,8 +93,8 @@ export function BentoGrid() {
                 <ArrowUpRight className="w-5 h-5" />
               </Link>
             </div>
+            </div>
           </div>
-        </div>
 
         {/* Right Column */}
         <div className="flex flex-col gap-6 justify-between">

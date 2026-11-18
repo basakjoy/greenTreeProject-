@@ -62,7 +62,7 @@ const benefits = [
 export default function TrainingPage() {
   return (
     <div className="pt-24 pb-20">
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0">
             <Image
@@ -109,7 +109,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      <section id="programs" className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto scroll-mt-28">
+      <section id="programs" className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto scroll-mt-28">
         <div className="mb-8">
           <span className="text-xs font-bold text-eco uppercase tracking-widest">Professional Programs</span>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-forest-950 mt-1">
@@ -150,7 +150,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-7 bg-sand-50 rounded-3xl p-8 sm:p-10 border border-forest-200">
             <span className="text-xs font-bold text-eco uppercase tracking-widest">
@@ -205,7 +205,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="max-w-xl">
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white">

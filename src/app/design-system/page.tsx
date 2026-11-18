@@ -61,7 +61,7 @@ export default function DesignSystemPage() {
     <div className="min-h-screen bg-[#000000] text-[#d8eaff] selection:bg-[#1f58f2] selection:text-white font-monument">
       {/* 1. TOP NAVIGATION BAR */}
       <header className="sticky top-0 z-50 w-full bg-[#000000]/80 backdrop-blur-md border-b border-[#d8eaff]/10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-[80px] flex items-center justify-between">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 h-[80px] flex items-center justify-between">
           <BrandMark name="atlantic" href="/design-system" />
 
           {/* Navigation Links (Mono 10-12px, uppercase, 0.16em tracking, 32px gap) */}
@@ -86,7 +86,7 @@ export default function DesignSystemPage() {
         <ParticleCloudCanvas />
 
         {/* Content Container (1400px max-width) */}
-        <div className="relative z-10 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <div className="relative z-10 max-w-page-max w-full mx-auto px-4 sm:px-6 lg:px-8 pt-12">
           {/* Micro category tag */}
           <div className="mb-4">
             <span className="font-mono text-[11px] font-[400] uppercase tracking-[0.16em] text-[#d8eaff]/70">
@@ -113,7 +113,7 @@ export default function DesignSystemPage() {
 
       {/* 3. EDITORIAL STATEMENT BLOCK */}
       <section id="approach" className="py-[100px] bg-[#0d0d0f] border-t border-[#d8eaff]/10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8">
           <EditorialStatementBlock>
             We back extraordinary founders turning deep technical breakthroughs into enduring global monopolies.
             We believe greatness starts as a contrarian intuition before becoming self-evident.
@@ -123,7 +123,7 @@ export default function DesignSystemPage() {
 
       {/* 4. PORTFOLIO SECTION */}
       <section id="portfolio" className="py-[100px] bg-[#000000]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-[48px] flex items-center gap-[16px]">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 mb-[48px] flex items-center gap-[16px]">
           <DecorativeSparkleMark size={40} points={6} />
           <h2 className="font-monument font-[400] text-[40px] sm:text-[64px] text-[#d8eaff] leading-[1.06] tracking-[-0.01em]">
             Portfolio companies
@@ -135,7 +135,7 @@ export default function DesignSystemPage() {
 
       {/* 5. MEET THE PIONEERS SECTION */}
       <section id="pioneers" className="py-[100px] bg-[#0d0d0f] border-t border-[#d8eaff]/10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-[56px] flex items-center gap-[16px]">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 mb-[56px] flex items-center gap-[16px]">
           <DecorativeSparkleMark size={40} points={8} rotation={12} />
           <div>
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-[#6c757f] block mb-1">
@@ -147,7 +147,7 @@ export default function DesignSystemPage() {
           </div>
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[32px]">
             {samplePioneers.map((pioneer) => (
               <PioneerProfileCard key={pioneer.id} pioneer={pioneer} />
@@ -158,7 +158,7 @@ export default function DesignSystemPage() {
 
       {/* 6. WIREFRAME CONTAINERS & SYSTEM TOKENS REFERENCE */}
       <section id="tokens" className="py-[100px] bg-[#000000] border-t border-[#d8eaff]/10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-[16px] mb-[48px]">
             <DecorativeSparkleMark size={40} />
             <h2 className="font-monument font-[400] text-[40px] sm:text-[64px] text-[#d8eaff] leading-[1.06] tracking-[-0.01em]">
@@ -241,7 +241,7 @@ export default function DesignSystemPage() {
 
       {/* 7. FOOTER */}
       <footer id="cta" className="py-[80px] bg-[#0d0d0f] border-t border-[#d8eaff]/10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <BrandMark name="atlantic" href="/design-system" />
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#6c757f]">
             © {new Date().getFullYear()} ATLANTIC // WIREFRAME SPECIFICATION

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import { SocialMediaPlatforms } from '@/components/ui/SocialMediaPlatforms';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ export default function ContactPage() {
     <div className="pt-24 pb-20">
       
       {/* Header Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -64,7 +65,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
           {/* Left Column: Official Contact Info */}
@@ -124,27 +125,13 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Secondary Address Note */}
-                <div className="p-4 rounded-2xl bg-sand-50 border border-forest-100 text-xs text-gray-600">
-                  <div className="font-bold text-forest-950 mb-0.5">Alternate Location:</div>
-                  <div>C/14 (2nd Floor), Road-6, Eastern Housing-2, South Kalyanpur, Mirpur, Dhaka 1207</div>
-                </div>
+                
 
               </div>
 
-              {/* Social Placeholders */}
               <div className="pt-6 border-t border-forest-100">
                 <span className="text-xs font-bold text-forest-950 block mb-2">Connect Across Platforms:</span>
-                <div className="flex flex-wrap gap-2 text-xs font-medium text-forest-800">
-                  {['LinkedIn', 'Facebook', 'Instagram', 'YouTube'].map((platform) => (
-                    <span
-                      key={platform}
-                      className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100 text-forest-900 text-[11px] font-semibold"
-                    >
-                      {platform}
-                    </span>
-                  ))}
-                </div>
+                <SocialMediaPlatforms />
               </div>
 
             </div>

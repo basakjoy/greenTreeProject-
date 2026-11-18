@@ -15,12 +15,12 @@ const NAV = [
     label: 'Services',
     href: '/services',
     children: [
-      { label: 'EDGE Certification',      href: '/services/edge-certification' },
-      { label: 'Energy Simulation',        href: '/services/energy-simulation' },
-      { label: 'Daylight Simulation',      href: '/services/daylight-simulation' },
-      { label: 'Tender & Design Review',   href: '/services/tender-design-documents-review' },
-      { label: 'LEED Commissioning',       href: '/services/leed-commissioning' },
-      { label: 'LEED Facilitation',        href: '/services/overall-leed-facilitation' },
+      { label: 'EDGE Certification', href: '/services/edge-certification' },
+      { label: 'BEER Green Building Rating', href: '/services/energy-simulation' },
+      { label: 'Life Cycle Assessment & Embodied Carbon', href: '/services/daylight-simulation' },
+      { label: 'Environmental Product Declaration', href: '/services/tender-design-documents-review' },
+      { label: 'LEED Advisory & Certification', href: '/services/leed-commissioning' },
+      { label: 'Building Resilience & Risk Assessment', href: '/services/overall-leed-facilitation' },
     ],
   },
   { label: 'Projects', href: '/projects' },
@@ -42,7 +42,7 @@ function Dropdown({
   return (
     <div
       className={cn(
-        'absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 z-50',
+        'absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 z-50',
         'transition-all duration-200 origin-top',
         visible
           ? 'opacity-100 scale-100 pointer-events-auto'
@@ -136,7 +136,7 @@ export function Header() {
           }}
         />
 
-        <div className="max-w-[1520px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center h-[70px]">
+        <div className="max-w-page-max mx-auto px-5 sm:px-8 lg:px-14 flex items-center h-[70px]">
 
           {/* ── LOGO ── */}
           <Link

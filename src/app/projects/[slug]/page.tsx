@@ -44,7 +44,7 @@ export default async function ProjectDetailPage({ params }: Props) {
     <div className="pt-24 pb-20">
       
       {/* Breadcrumbs */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+      <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
         <Link
           href="/projects"
           className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-eco transition-colors"
@@ -55,7 +55,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </div>
 
       {/* Main Container */}
-      <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 relative overflow-hidden shadow-2xl mb-10">
@@ -93,7 +93,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <span className="text-gray-400 block mb-0.5">Completed Year</span>
                 <span className="font-bold text-white flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5 text-eco" />
-                  {project.completedYear}
+                  {project.completedYear || 'Not specified'}
                 </span>
               </div>
             </div>
@@ -107,13 +107,13 @@ export default async function ProjectDetailPage({ params }: Props) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {gallery.map((imgUrl, i) => (
-              <div key={i} className="relative h-80 sm:h-96 w-full rounded-3xl overflow-hidden shadow-lift bg-slate-900">
+              <div key={i} className="relative h-80 sm:h-96 w-full rounded-3xl overflow-hidden shadow-lift bg-white">
                 <Image
                   src={imgUrl}
                   alt={`${project.title} photo ${i + 1}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-contain p-2"
                 />
               </div>
             ))}

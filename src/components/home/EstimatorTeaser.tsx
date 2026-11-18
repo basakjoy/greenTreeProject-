@@ -37,7 +37,7 @@ export function EstimatorTeaser() {
   }, [gfa, buildingType, tier]);
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto">
       <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-10 lg:p-14 border border-forest-100 shadow-lift">
         
         {/* Section Heading */}

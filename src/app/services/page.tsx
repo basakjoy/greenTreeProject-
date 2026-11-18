@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 const serviceImages: Record<string, string> = {
-  'edge-certification': '/images/hero/hero-green-facade.jpg',
-  'energy-simulation': '/images/hero/hero-biophilic-dome.jpg',
-  'daylight-simulation': '/images/hero/hero-sculptural-courtyard.jpg',
-  'tender-design-documents-review': '/images/hero/hero-green-facade.jpg',
-  'leed-commissioning': '/images/hero/hero-biophilic-dome.jpg',
-  'overall-leed-facilitation': '/images/hero/hero-sculptural-courtyard.jpg',
+  'edge-certification': '/images/services/edge-excellence.jpg',
+  'energy-simulation': '/images/services/beer-sustainability.png',
+  'daylight-simulation': '/images/services/life-cycle-assessment.jpg',
+  'tender-design-documents-review': '/images/services/epd-verification.jpg',
+  'leed-commissioning': '/images/services/usgbc-leed.png',
+  'overall-leed-facilitation': '/images/services/building-resilience.png',
 };
 
 export default async function ServicesPage() {
@@ -29,7 +29,7 @@ export default async function ServicesPage() {
     <div className="pt-24 pb-20">
       
       {/* 1. Header Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -51,7 +51,7 @@ export default async function ServicesPage() {
       </section>
 
       {/* 2. Detailed Service Cards Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {servicesList.map((service, index) => {
             const img = serviceImages[service.slug] || '/images/hero/hero-green-facade.jpg';
@@ -61,13 +61,13 @@ export default async function ServicesPage() {
                 className="bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-subtle hover:shadow-lift transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-6">
+                  <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-6 bg-[linear-gradient(135deg,#f1f8f4_0%,#ffffff_70%)]">
                     <Image
                       src={img}
                       alt={service.title}
                       fill
                       sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
+                      className="object-contain p-6"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent" />
                     <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-forest-950/85 backdrop-blur-md text-emerald-300 border border-forest-700/60">
@@ -118,7 +118,7 @@ export default async function ServicesPage() {
       </section>
 
       {/* 3. Official Call to Action Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="max-w-xl">
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white">

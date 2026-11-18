@@ -113,7 +113,6 @@ html {
 img,
 video {
   max-width: 100%;
-  height: auto;
 }
 
 h1,
@@ -150,6 +149,100 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.home-page-content {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgba(247, 249, 246, 0.784), rgba(247, 249, 246, 0.663)),
+    url('/images/backgrounds/building-design-sketch.jpeg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .home-page-content {
+    background-size: auto 100%;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+}
+
+.service-card {
+  opacity: 0;
+  animation: service-card-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.service-logo-motion {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: service-logo-float 4.5s ease-in-out infinite;
+}
+
+.service-card:hover .service-logo-motion {
+  transform: scale(1.08) rotate(-1deg);
+  animation-play-state: paused;
+}
+
+.service-shimmer {
+  left: -55%;
+  animation: service-shimmer 5.5s ease-in-out infinite;
+}
+
+.certification-track {
+  animation: certification-scroll 26s linear infinite;
+  will-change: transform;
+}
+
+.certification-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes service-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes service-logo-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+@keyframes service-shimmer {
+  0%, 65% {
+    left: -55%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes certification-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Custom scrollbar */

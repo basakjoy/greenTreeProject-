@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getClients } from '@/server/services/content';
 import { Briefcase, ArrowUpRight, Sparkles, Building, CheckCircle2 } from 'lucide-react';
@@ -7,7 +8,7 @@ import { Briefcase, ArrowUpRight, Sparkles, Building, CheckCircle2 } from 'lucid
 export const metadata: Metadata = {
   title: 'Our Clients | Green Tree Building Consultants',
   description:
-    'Our trusted institutional and corporate partners across Bangladesh, including Navana Group, Ahsan Group, Wonderland Toys, Palmal Group, J&H, Fakir Group, and Cosmic Group.',
+    'Our trusted institutional and corporate partners across Bangladesh, including Navana Group, Ahsan Group, Wonderland Toys, Palmal Group, J&H, Fakir Group, Fakir Knitwears Ltd., Cosmic Group, Anwar Landmark, Trikon Architects, Starpath Holdings, Shatotto, Shanta Holdings, Rahama Properties, and Rangs Properties.',
 };
 
 export const revalidate = 3600;
@@ -19,7 +20,7 @@ export default async function ClientsPage() {
     <div className="pt-24 pb-20">
       
       {/* Header Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -41,7 +42,7 @@ export default async function ClientsPage() {
       </section>
 
       {/* Clients Showcase Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {clientsList.map((client) => (
             <div
@@ -51,12 +52,26 @@ export default async function ClientsPage() {
               <div>
                 {/* Logo Placeholder Box */}
                 <div className="h-28 w-full rounded-2xl bg-sand-50 border border-forest-100 flex flex-col items-center justify-center p-4 text-center mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-forest-100 text-forest-900 flex items-center justify-center mb-2">
-                    <Building className="w-5 h-5 text-eco" />
-                  </div>
-                  <span className="text-[10px] font-bold text-forest-800 uppercase tracking-widest">
-                    Corporate Client
-                  </span>
+                  {client.logo ? (
+                    <div className="relative h-20 w-full">
+                      <Image
+                        src={client.logo}
+                        alt={`${client.name} logo`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <div className="w-10 h-10 rounded-xl bg-forest-100 text-forest-900 flex items-center justify-center mb-2">
+                        <Building className="w-5 h-5 text-eco" />
+                      </div>
+                      <span className="text-[10px] font-bold text-forest-800 uppercase tracking-widest">
+                        Corporate Client
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 <span className="text-[10px] font-bold text-eco uppercase tracking-wider">
@@ -86,7 +101,7 @@ export default async function ClientsPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="max-w-xl">
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white">

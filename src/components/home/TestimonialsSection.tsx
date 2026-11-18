@@ -15,7 +15,7 @@ interface TestimonialItem {
 
 export function TestimonialsSection({ testimonials }: { testimonials: TestimonialItem[] }) {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
         <span className="text-xs font-bold text-eco uppercase tracking-widest">

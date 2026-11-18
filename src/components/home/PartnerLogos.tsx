@@ -24,6 +24,14 @@ const clients: Client[] = [
   { name: 'J&H', logo: '/images/clients/J&h group.png' },
   { name: 'Fakir Group', logo: '/images/clients/fakirGroup.png' },
   { name: 'Cosmic Group', logo: '/images/clients/cosmicGroup.png' },
+  { name: 'Anwar Landmark', logo: '/images/clients/anwar-landmark.png' },
+  { name: 'Trikon Architects', logo: '/images/clients/trikon-architects.jpeg' },
+  { name: 'Starpath Holdings Ltd.', logo: '/images/clients/starpath-holdings.jpeg' },
+  { name: 'Shatotto', logo: '/images/clients/shatotto.jpeg' },
+  { name: 'Shanta Holdings', logo: '/images/clients/shanta-holdings.jpeg' },
+  { name: 'Rahama Properties', logo: '/images/clients/rahama-properties.png' },
+  { name: 'Rangs Properties', logo: '/images/clients/rangs-properties.png' },
+  { name: 'Fakir Knitwears Ltd.', logo: '/images/clients/fakir-knitwears.png' },
 ];
 
 type Membership = {
@@ -315,7 +323,7 @@ function MembershipBadge({
         show ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
       }`}
     >
-      {hasLogo ? (
+      {/* {hasLogo ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={membership.logo}
@@ -332,7 +340,7 @@ function MembershipBadge({
         >
           {membership.acronym.slice(0, 1)}
         </span>
-      )}
+      )} */}
       <span className="font-bold">{membership.acronym}</span>
       <span className="hidden max-w-44 text-[11px] leading-tight text-gray-500 lg:inline">
         {membership.name}

@@ -57,7 +57,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <div className="pt-24 pb-20">
         
         {/* Breadcrumb / Back Link */}
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+        <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-eco transition-colors"
@@ -68,7 +68,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </div>
 
         {/* Hero Banner */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+        <section className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pb-10">
           <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-forest-900 border border-forest-700 text-eco mb-4">
@@ -86,7 +86,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         </section>
 
         {/* Content Section */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <section className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="bg-white rounded-3xl p-8 sm:p-12 border border-forest-100 shadow-subtle space-y-10">
             
             {/* Description */}

@@ -3,6 +3,7 @@ import { Hero } from '@/components/home/Hero';
 import { StatsBar } from '@/components/home/StatsBar';
 import { BentoGrid } from '@/components/home/BentoGrid';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
+import { TrainingSection } from '@/components/home/TrainingSection';
 import { LeadershipSection } from '@/components/home/LeadershipSection';
 import { EstimatorTeaser } from '@/components/home/EstimatorTeaser';
 import { PartnerLogos } from '@/components/home/PartnerLogos';
@@ -71,17 +72,18 @@ export default async function HomePage() {
       <div className="flex flex-col gap-2">
         {/* Full-width Hero Section with background photography */}
         <Hero />
+      </div>
 
-
+      <div className="home-page-content flex flex-col gap-2">
          {/* Client Logos & Memberships (IAB, IEB, RAJUK) */}
         <ParallaxSection speed={0.03}>
           <PartnerLogos />
         </ParallaxSection>
         
         {/* Verified Stats Bar */}
-        <ParallaxSection speed={0.06}>
+        {/* <ParallaxSection speed={0.06}>
           <StatsBar />
-        </ParallaxSection>
+        </ParallaxSection> */}
         
         {/* Exclusive Studio Process & "Design is Everything" Bento Grid */}
         <ParallaxSection speed={0.05}>
@@ -92,6 +94,11 @@ export default async function HomePage() {
         <ParallaxSection speed={0.04}>
           <ServicesGrid services={services} />
         </ParallaxSection>
+
+        {/* Professional training programs */}
+        <ParallaxSection speed={0.04}>
+          <TrainingSection />
+        </ParallaxSection>
         
         {/* Dedicated Section for CEO Rubana Nasrin */}
         <ParallaxSection speed={0.05}>
@@ -100,7 +107,7 @@ export default async function HomePage() {
 
         {/* Verified Projects Feature Section */}
         <ParallaxSection speed={0.04}>
-          <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto w-full">
+          <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto w-full">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
               <div>
                 <span className="text-xs font-bold text-eco uppercase tracking-widest">
@@ -130,15 +137,15 @@ export default async function HomePage() {
                   className="group bg-white rounded-3xl overflow-hidden border border-forest-100 shadow-subtle hover:shadow-lift transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="relative h-56 w-full overflow-hidden bg-forest-950">
+                    <div className="relative h-56 w-full overflow-hidden bg-white">
                       <Image
                         src={project.imageUrl}
                         alt={project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-contain p-2 group-hover:scale-[1.03] transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-forest-950/55 via-transparent to-transparent pointer-events-none" />
                       <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/85 backdrop-blur-md text-emerald-300 border border-forest-700/60">
                         {project.sector}
                       </div>
@@ -173,7 +180,9 @@ export default async function HomePage() {
                         <span>Explore Project</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-eco" />
                       </Link>
-                      <span className="text-xs text-gray-400 font-semibold">{project.completedYear}</span>
+                      <span className="text-xs text-gray-400 font-semibold">
+                        {project.completedYear || 'Year not provided'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -183,9 +192,9 @@ export default async function HomePage() {
         </ParallaxSection>
 
         {/* Feasibility & ROI Estimator Teaser */}
-        <ParallaxSection speed={0.04}>
+        {/* <ParallaxSection speed={0.04}>
           <EstimatorTeaser />
-        </ParallaxSection>
+        </ParallaxSection> */}
 
        
 

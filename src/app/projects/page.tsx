@@ -20,7 +20,7 @@ export default async function ProjectsPage() {
     <div className="pt-24 pb-20">
       
       {/* 1. Header Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -42,7 +42,7 @@ export default async function ProjectsPage() {
       </section>
 
       {/* 2. Projects Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsList.map((project) => (
             <div
@@ -51,15 +51,15 @@ export default async function ProjectsPage() {
             >
               <div>
                 {/* Project Image */}
-                <div className="relative h-60 w-full overflow-hidden bg-forest-950">
+                <div className="relative h-60 w-full overflow-hidden bg-white">
                   <Image
                     src={project.imageUrl}
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-2 group-hover:scale-[1.03] transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/55 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Sector Pill */}
                   <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/85 backdrop-blur-md text-emerald-300 border border-forest-700/60">
@@ -106,7 +106,7 @@ export default async function ProjectsPage() {
                     <ArrowUpRight className="w-4 h-4 text-eco group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Link>
                   <span className="text-[11px] font-semibold text-gray-400">
-                    {project.completedYear}
+                    {project.completedYear || 'Year not provided'}
                   </span>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default async function ProjectsPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="max-w-xl">
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white">

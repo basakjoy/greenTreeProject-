@@ -2,14 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, MapPin, ArrowUpRight, Award, ShieldCheck, Building } from 'lucide-react';
+import { SocialMediaPlatforms } from '@/components/ui/SocialMediaPlatforms';
 
 const serviceLinks = [
-  { name: 'EDGE Certification Service', href: '/services/edge-certification' },
-  { name: 'Energy Simulation Services', href: '/services/energy-simulation' },
-  { name: 'Daylight Simulation Services', href: '/services/daylight-simulation' },
-  { name: 'Tender & Design Documents Review', href: '/services/tender-design-documents-review' },
-  { name: 'LEED Commissioning Services', href: '/services/leed-commissioning' },
-  { name: 'Overall LEED Facilitation Services', href: '/services/overall-leed-facilitation' },
+  { name: 'EDGE Certification', href: '/services/edge-certification' },
+  { name: 'BEER Green Building Rating', href: '/services/energy-simulation' },
+  { name: 'Life Cycle Assessment & Embodied Carbon', href: '/services/daylight-simulation' },
+  { name: 'Environmental Product Declaration', href: '/services/tender-design-documents-review' },
+  { name: 'LEED Advisory & Certification', href: '/services/leed-commissioning' },
+  { name: 'Building Resilience & Risk Assessment', href: '/services/overall-leed-facilitation' },
 ];
 
 const resourceLinks = [
@@ -34,7 +35,7 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer className="bg-forest-950 text-gray-300 pt-16 pb-12 border-t border-forest-850">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Branding & Positioning Banner */}
         <div className="pb-10 mb-12 border-b border-forest-900 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -68,15 +69,8 @@ export function Footer() {
               Green Tree Building Consultants (GTBC) is a registered private limited building and design consultancy based in Dhaka, Bangladesh. Bringing together architects, structural and MEP engineers, and estimators to deliver high-value cost reduction and timeless architectural design.
             </p>
             
-            <div className="flex flex-wrap items-center gap-2 pt-2 text-xs">
-              {['LinkedIn', 'Facebook', 'Instagram', 'YouTube'].map((platform) => (
-                <span
-                  key={platform}
-                  className="px-2.5 py-1 rounded-lg bg-forest-900 border border-forest-800 text-gray-300 text-[11px] font-medium hover:text-eco hover:border-forest-700 transition-colors cursor-pointer"
-                >
-                  {platform}
-                </span>
-              ))}
+            <div className="pt-2">
+              <SocialMediaPlatforms variant="dark" />
             </div>
           </div>
 

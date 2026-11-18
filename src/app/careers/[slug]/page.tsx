@@ -44,7 +44,7 @@ export default async function JobDetailPage({ params }: Props) {
   return (
     <div className="pt-24 pb-20">
       {/* Breadcrumb */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+      <div className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
         <Link
           href="/careers"
           className="inline-flex items-center gap-2 text-xs font-bold text-gray-500 hover:text-eco transition-colors"
@@ -55,7 +55,7 @@ export default async function JobDetailPage({ params }: Props) {
       </div>
 
       {/* Hero Banner */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+      <section className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -91,7 +91,7 @@ export default async function JobDetailPage({ params }: Props) {
       </section>
 
       {/* Main Content */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <section className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-forest-100 shadow-subtle space-y-10">
           
           {/* Overview */}

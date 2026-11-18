@@ -17,7 +17,7 @@ interface FellowItem {
 
 export function TeamSection({ fellows }: { fellows: FellowItem[] }) {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
         <div>

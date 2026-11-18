@@ -23,7 +23,7 @@ export default async function AboutPage() {
     <div className="pt-24 pb-20">
       
       {/* 1. Header Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
           
@@ -45,7 +45,7 @@ export default async function AboutPage() {
       </section>
 
       {/* 2. Process & Interdisciplinary Approach */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           
           {/* Studio Process */}
@@ -100,7 +100,7 @@ export default async function AboutPage() {
       </section>
 
       {/* 3. Mission & Vision */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           <div className="bg-forest-900 text-white rounded-3xl p-8 sm:p-10 border border-forest-800 shadow-lift">
@@ -133,7 +133,7 @@ export default async function AboutPage() {
       </section>
 
       {/* 4. Professional Commitment & Registered Memberships */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 max-w-page-max mx-auto">
         <div className="bg-sand-50 rounded-3xl sm:rounded-4xl p-8 sm:p-12 border border-forest-200">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-bold text-eco uppercase tracking-widest">
@@ -170,7 +170,7 @@ export default async function AboutPage() {
       </section>
 
       {/* 5. Studio Team & Leadership */}
-      <section className="px-4 sm:px-6 lg:px-8 py-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-14 max-w-page-max mx-auto">
         <div className="mb-10 text-center max-w-2xl mx-auto">
           <span className="text-xs font-bold text-eco uppercase tracking-widest">
             Studio Structure
@@ -226,7 +226,7 @@ export default async function AboutPage() {
       </section>
 
       {/* 6. CTA */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-forest-950 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="max-w-xl">
             <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-white">

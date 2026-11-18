@@ -32,7 +32,7 @@ const stats = [
 
 export function StatsBar() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-6 max-w-page-max mx-auto">
       <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-8 border border-forest-100 shadow-lift">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:divide-x divide-forest-100">
           {stats.map((stat, idx) => (

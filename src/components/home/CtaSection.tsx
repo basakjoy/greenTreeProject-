@@ -6,7 +6,7 @@ import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export function CtaSection() {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto">
       <div className="relative rounded-3xl sm:rounded-4xl lg:rounded-[40px] bg-white border border-forest-200 p-8 sm:p-14 lg:p-20 shadow-lift overflow-hidden">
         
         {/* Subtle decorative eco glow */}
@@ -59,6 +59,25 @@ export function CtaSection() {
         </div>
 
       </div>
+
+      {/* Verified Call to Action Banner */}
+            <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+              <div className="max-w-xl">
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+                  Ready to Transform Your Next Project?
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed">
+                  Get in touch with us today to explore how our services can help you achieve your sustainability goals.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-eco-400 transition-all shadow-glow shrink-0"
+              >
+                <span>Contact Us</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
     </section>
   );
 }

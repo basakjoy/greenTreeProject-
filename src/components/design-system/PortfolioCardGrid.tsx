@@ -29,7 +29,7 @@ export const PortfolioCardGrid: React.FC<PortfolioCardGridProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={`w-full max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
       {/* Editorial Scaffolding Labels */}
       {scaffoldingLabels && scaffoldingLabels.length > 0 && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">

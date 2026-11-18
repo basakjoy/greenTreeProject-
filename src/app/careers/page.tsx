@@ -76,7 +76,7 @@ export default async function CareersPage() {
     <div className="pt-24 pb-20">
       
       {/* ── 1. Header Banner (Consistent with About / Services / Contact) ── */}
-      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 pt-8 pb-14 max-w-page-max mx-auto">
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           {/* Ambient eco glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
@@ -116,7 +116,7 @@ export default async function CareersPage() {
       </section>
 
       {/* ── 2. Studio Culture & Perks ── */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="mb-8">
           <span className="text-xs font-bold text-eco uppercase tracking-widest">
             Studio Culture &amp; Benefits
@@ -155,7 +155,7 @@ export default async function CareersPage() {
       </section>
 
       {/* ── 3. Open Positions List ── */}
-      <section id="open-positions" className="px-4 sm:px-6 lg:px-8 py-12 max-w-7xl mx-auto">
+      <section id="open-positions" className="px-4 sm:px-6 lg:px-8 py-12 max-w-page-max mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs font-bold text-eco uppercase tracking-widest">
@@ -254,7 +254,7 @@ export default async function CareersPage() {
       </section>
 
       {/* ── 4. Professional Recognitions ── */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="bg-white rounded-3xl p-8 border border-forest-100 shadow-subtle text-center">
           <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-4">
             Recognised &amp; Registered With
@@ -276,7 +276,7 @@ export default async function CareersPage() {
       </section>
 
       {/* ── 5. Bottom CTA Banner (Consistent with About / Services) ── */}
-      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="p-8 sm:p-12 rounded-3xl bg-forest-950 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
           <div className="max-w-xl relative z-10">

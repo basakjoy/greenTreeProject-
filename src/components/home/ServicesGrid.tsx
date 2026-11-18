@@ -14,17 +14,28 @@ interface ServiceItem {
 }
 
 const serviceImages: Record<string, string> = {
-  'edge-certification': '/images/hero/hero-green-facade.jpg',
-  'energy-simulation': '/images/hero/hero-biophilic-dome.jpg',
-  'daylight-simulation': '/images/hero/hero-sculptural-courtyard.jpg',
-  'tender-design-documents-review': '/images/hero/hero-green-facade.jpg',
-  'leed-commissioning': '/images/hero/hero-biophilic-dome.jpg',
-  'overall-leed-facilitation': '/images/hero/hero-sculptural-courtyard.jpg',
+  'edge-certification': '/images/services/edge-excellence.jpg',
+  'energy-simulation': '/images/services/beer-sustainability.png',
+  'daylight-simulation': '/images/services/life-cycle-assessment.jpg',
+  'tender-design-documents-review': '/images/services/epd-verification.jpg',
+  'leed-commissioning': '/images/services/usgbc-leed.png',
+  'overall-leed-facilitation': '/images/services/building-resilience.png',
 };
+
+const certificationLogos = [
+  '/images/services/edge-excellence.jpg',
+  '/images/services/usgbc-leed.png',
+  '/images/services/beer-sustainability.png',
+  '/images/services/building-resilience.png',
+  '/images/services/environmental-impact-assessment.jpg',
+  '/images/services/epd-verification.jpg',
+  '/images/services/life-cycle-assessment.jpg',
+  '/images/services/sustainable-house.jpg',
+];
 
 export function ServicesGrid({ services }: { services: ServiceItem[] }) {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-7xl mx-auto">
+    <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-24 max-w-page-max mx-auto">
       {/* Header Bar using verified company copy */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
         <div className="max-w-3xl">
@@ -50,27 +61,29 @@ export function ServicesGrid({ services }: { services: ServiceItem[] }) {
 
       {/* 6 Official Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {services.map((service) => {
+        {services.map((service, index) => {
           const img = serviceImages[service.slug] || '/images/hero/hero-green-facade.jpg';
           return (
             <div
               key={service.slug}
-              className="group bg-white rounded-3xl p-5 sm:p-6 border border-forest-100 shadow-subtle hover:shadow-lift transition-all flex flex-col justify-between"
+              className="service-card group bg-white rounded-3xl p-5 sm:p-6 border border-forest-100 shadow-subtle hover:shadow-lift transition-all flex flex-col justify-between"
+              style={{ animationDelay: `${index * 90}ms` }}
             >
               <div>
                 {/* Image Container with Badge */}
-                <div className="relative h-48 sm:h-52 w-full rounded-2xl overflow-hidden mb-5">
+                <div className="relative h-48 sm:h-52 w-full rounded-2xl overflow-hidden mb-5 bg-[linear-gradient(135deg,#f1f8f4_0%,#ffffff_70%)] border border-forest-50">
                   <Image
                     src={img}
                     alt={service.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-5 service-logo-motion"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-forest-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/[0.08] via-transparent to-white/30" />
+                  <div className="service-shimmer absolute inset-y-0 w-1/3 -skew-x-12 bg-white/30" />
                   
                   {service.badge && (
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/85 backdrop-blur-md text-emerald-300 border border-forest-700/60">
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/90 backdrop-blur-md text-emerald-300 border border-forest-700/60 shadow-lg">
                       {service.badge}
                     </div>
                   )}
@@ -101,7 +114,27 @@ export function ServicesGrid({ services }: { services: ServiceItem[] }) {
         })}
       </div>
 
-      {/* Verified Call to Action Banner */}
+      <div className="mt-10 sm:mt-12 overflow-hidden rounded-2xl border border-forest-100 bg-white py-4" aria-label="Green building certification and sustainability credentials">
+        <div className="certification-track flex w-max items-center">
+          {[...certificationLogos, ...certificationLogos].map((logo, index) => (
+            <div
+              key={`${logo}-${index}`}
+              className="relative mx-4 flex h-16 w-32 shrink-0 items-center justify-center sm:mx-7 sm:h-20 sm:w-40"
+              aria-hidden={index >= certificationLogos.length}
+            >
+              <Image
+                src={logo}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 128px, 160px"
+                className="object-contain grayscale-[15%] opacity-80 transition-all duration-300 hover:scale-110 hover:grayscale-0 hover:opacity-100"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Verified Call to Action Banner
       <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
         <div className="max-w-xl">
           <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
@@ -118,7 +151,7 @@ export function ServicesGrid({ services }: { services: ServiceItem[] }) {
           <span>Contact Us</span>
           <ArrowUpRight className="w-4 h-4" />
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 }
