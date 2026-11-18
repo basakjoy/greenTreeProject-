@@ -136,12 +136,14 @@ export default function ContactPage() {
               <div className="pt-6 border-t border-forest-100">
                 <span className="text-xs font-bold text-forest-950 block mb-2">Connect Across Platforms:</span>
                 <div className="flex flex-wrap gap-2 text-xs font-medium text-forest-800">
-                  <span className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100">[Facebook]</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100">[LinkedIn]</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100">[Twitter]</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100">[Instagram]</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100">[Pinterest]</span>
-                  <span className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100">[YouTube]</span>
+                  {['LinkedIn', 'Facebook', 'Instagram', 'YouTube'].map((platform) => (
+                    <span
+                      key={platform}
+                      className="px-2.5 py-1 rounded-lg bg-forest-50 border border-forest-100 text-forest-900 text-[11px] font-semibold"
+                    >
+                      {platform}
+                    </span>
+                  ))}
                 </div>
               </div>
 

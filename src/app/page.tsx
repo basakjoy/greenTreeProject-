@@ -71,6 +71,12 @@ export default async function HomePage() {
       <div className="flex flex-col gap-2">
         {/* Full-width Hero Section with background photography */}
         <Hero />
+
+
+         {/* Client Logos & Memberships (IAB, IEB, RAJUK) */}
+        <ParallaxSection speed={0.03}>
+          <PartnerLogos />
+        </ParallaxSection>
         
         {/* Verified Stats Bar */}
         <ParallaxSection speed={0.06}>
@@ -181,10 +187,7 @@ export default async function HomePage() {
           <EstimatorTeaser />
         </ParallaxSection>
 
-        {/* Client Logos & Memberships (IAB, IEB, RAJUK) */}
-        <ParallaxSection speed={0.03}>
-          <PartnerLogos />
-        </ParallaxSection>
+       
 
         {/* Final CTA Banner */}
         <CtaSection />

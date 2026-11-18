@@ -13,9 +13,12 @@ const serviceLinks = [
 ];
 
 const resourceLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Training', href: '/training' },
+  { name: 'Events', href: '/events' },
   { name: 'Our Projects', href: '/projects' },
   { name: 'Our Clients', href: '/clients' },
-  { name: 'ROI Estimator', href: '/estimator' },
+  
   { name: 'About Green Tree', href: '/about' },
   { name: 'Careers', href: '/careers' },
   { name: 'Contact Us', href: '/contact' },
@@ -25,7 +28,7 @@ const legalLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
   { name: 'Terms of Service', href: '/terms' },
   { name: 'Sustainability Disclosures', href: '/disclosures' },
-  { name: 'Admin Portal', href: '/admin' },
+  
 ];
 
 export function Footer() {
@@ -46,25 +49,11 @@ export function Footer() {
               />
             </Link>
             <p className="text-xs text-gray-400 italic max-w-sm">
-              &ldquo;We are an exclusive consultant — passionate about creating spaces that are functional and aesthetically timeless. Design is everything.&rdquo;
+              &ldquo;We are an exclusive consultant passionate about creating spaces that are functional and aesthetically timeless. Design is everything.&rdquo;
             </p>
           </div>
 
-          {/* Memberships Strip */}
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-forest-900 text-emerald-300 border border-forest-750">
-              <Award className="w-3.5 h-3.5 text-eco" />
-              IAB Member
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-forest-900 text-emerald-300 border border-forest-750">
-              <ShieldCheck className="w-3.5 h-3.5 text-eco" />
-              IEB Registered
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-forest-900 text-emerald-300 border border-forest-750">
-              <Building className="w-3.5 h-3.5 text-eco" />
-              RAJUK Enlisted
-            </span>
-          </div>
+         
         </div>
 
         {/* 4 Main Columns */}
@@ -78,15 +67,16 @@ export function Footer() {
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
               Green Tree Building Consultants (GTBC) is a registered private limited building and design consultancy based in Dhaka, Bangladesh. Bringing together architects, structural and MEP engineers, and estimators to deliver high-value cost reduction and timeless architectural design.
             </p>
-            <div className="text-xs text-gray-400 font-medium">
-              Website: <a href="https://www.greentreebd.com" className="text-eco hover:underline">www.greentreebd.com</a>
-            </div>
-            <div className="flex items-center gap-3 pt-2 text-xs text-gray-400">
-              <a href="#" className="hover:text-eco transition-colors">[Facebook]</a>
-              <a href="#" className="hover:text-eco transition-colors">[LinkedIn]</a>
-              <a href="#" className="hover:text-eco transition-colors">[Twitter]</a>
-              <a href="#" className="hover:text-eco transition-colors">[Instagram]</a>
-              <a href="#" className="hover:text-eco transition-colors">[YouTube]</a>
+            
+            <div className="flex flex-wrap items-center gap-2 pt-2 text-xs">
+              {['LinkedIn', 'Facebook', 'Instagram', 'YouTube'].map((platform) => (
+                <span
+                  key={platform}
+                  className="px-2.5 py-1 rounded-lg bg-forest-900 border border-forest-800 text-gray-300 text-[11px] font-medium hover:text-eco hover:border-forest-700 transition-colors cursor-pointer"
+                >
+                  {platform}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -139,7 +129,7 @@ export function Footer() {
                 <div className="space-y-1">
                   <div className="font-semibold text-white">Office Location:</div>
                   <div>House #136 (1st Floor), Eastern Housing Project-1, Darus Salam, Mirpur, Dhaka 1216</div>
-                  <div className="text-[11px] text-gray-500">[Branch: C/14 (2nd Floor), Road-6, Eastern Housing-2, South Kalyanpur, Mirpur, Dhaka 1207]</div>
+                  
                 </div>
               </div>
 

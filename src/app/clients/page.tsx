@@ -54,8 +54,8 @@ export default async function ClientsPage() {
                   <div className="w-10 h-10 rounded-xl bg-forest-100 text-forest-900 flex items-center justify-center mb-2">
                     <Building className="w-5 h-5 text-eco" />
                   </div>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-                    [PLACEHOLDER: CLIENT LOGO]
+                  <span className="text-[10px] font-bold text-forest-800 uppercase tracking-widest">
+                    Corporate Client
                   </span>
                 </div>
 

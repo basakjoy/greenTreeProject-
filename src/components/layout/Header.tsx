@@ -9,6 +9,8 @@ import { cn } from '@/lib/utils';
 
 // ─── Navigation structure ────────────────────────────────────────────────────
 const NAV = [
+  { label: 'Home',     href: '/' },
+  { label: 'About',    href: '/about' },
   {
     label: 'Services',
     href: '/services',
@@ -22,10 +24,11 @@ const NAV = [
     ],
   },
   { label: 'Projects', href: '/projects' },
+  { label: 'Training', href: '/training' },
   { label: 'Clients',  href: '/clients' },
-  { label: 'About',    href: '/about' },
-  { label: 'Careers',  href: '/careers', badge: 'Hiring' },
-  { label: 'Contact',  href: '/contact' },
+  { label: 'Events',   href: '/events' },
+  { label: 'Career',   href: '/careers', badge: 'Hiring' },
+  { label: 'Contacts', href: '/contact' },
 ];
 
 // ─── Dropdown ─────────────────────────────────────────────────────────────────

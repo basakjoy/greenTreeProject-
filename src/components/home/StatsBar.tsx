@@ -34,13 +34,13 @@ export function StatsBar() {
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
       <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-8 border border-forest-100 shadow-lift">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-forest-100">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:divide-x divide-forest-100">
           {stats.map((stat, idx) => (
             <div
               key={stat.label}
               className={`flex flex-col items-center lg:items-start text-center lg:text-left ${
-                idx !== 0 ? 'pt-6 lg:pt-0 lg:pl-6' : ''
-              }`}
+                idx !== 0 ? 'lg:pl-6' : ''
+              } ${idx === 4 ? 'col-span-2 md:col-span-1' : ''}`}
             >
               <div className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-forest-950 tracking-tight flex items-baseline gap-0.5">
                 <span>{stat.value}</span>

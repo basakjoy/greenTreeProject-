@@ -241,19 +241,7 @@ export function Hero() {
                 style={{ fontSize: 'clamp(60px, 12.5vw, 200px)', lineHeight: 0.88 }}
               >
                 {/* First word */}
-                <span>GREEN</span>
-
-                {/* © symbol — superscript style, sized relative to parent */}
-                <span
-                  className="inline-flex items-center justify-center border border-white/50 rounded-full font-light text-white/90 mx-2 align-super"
-                  style={{
-                    fontSize: 'clamp(14px, 2.2vw, 36px)',
-                    width:  'clamp(24px, 3.6vw, 58px)',
-                    height: 'clamp(24px, 3.6vw, 58px)',
-                  }}
-                >
-                  ©
-                </span>
+                <span className="mr-3 sm:mr-6">GREEN</span>
 
                 {/* Second word — may intentionally bleed past the viewport on small screens */}
                 <span className="text-white/95">TREE</span>
@@ -264,7 +252,7 @@ export function Hero() {
           </div>
 
           {/* Top-right badge */}
-          <div className="absolute top-32 sm:top-40 right-5 sm:right-10 lg:right-14 flex items-start gap-2 text-right">
+          <div className="absolute top-20 sm:top-40 right-5 sm:right-10 lg:right-14 flex items-start gap-2 text-right">
             <div
               className="w-5 h-5 sm:w-6 sm:h-6 text-white/70 shrink-0 mt-0.5"
               aria-hidden="true"
@@ -273,11 +261,7 @@ export function Hero() {
                 <path d="M12 0L13.8 8.2L22 10L13.8 11.8L12 20L10.2 11.8L2 10L10.2 8.2L12 0Z" />
               </svg>
             </div>
-            <div className="flex flex-col text-right leading-tight">
-              <span className="text-[10px] sm:text-xs font-bold text-white/80 tracking-widest uppercase">WE ENGINEER</span>
-              <span className="text-[10px] sm:text-xs font-bold text-white/80 tracking-widest uppercase">NET-ZERO ARCHITECTURE</span>
-              <span className="text-[10px] sm:text-xs font-bold text-white/80 tracking-widest uppercase">IN BANGLADESH</span>
-            </div>
+            
           </div>
         </div>
 
@@ -313,7 +297,7 @@ export function Hero() {
           </div>
 
           {/* Centre: slide indicator pills */}
-          <div className="flex items-center gap-2 self-end md:self-auto pb-1">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 self-start md:self-auto pb-1">
             {heroSlides.map((slide, index) => (
               <button
                 key={slide.id}
@@ -336,37 +320,43 @@ export function Hero() {
           {/* Right: floating stat card */}
           <div className="self-end w-full sm:w-auto">
             <div className="bg-white text-slate-900 rounded-[28px] p-5 sm:p-6 shadow-2xl max-w-xs sm:max-w-[300px]">
-              <div className="flex items-center justify-between gap-4 mb-2">
-                <span className="font-black text-3xl sm:text-4xl text-slate-950 tracking-tight">250+</span>
-                <Link
-                  href="/projects"
-                  className="w-8 h-8 rounded-full bg-slate-950 text-white flex items-center justify-center hover:scale-110 transition-transform"
-                  aria-label="View all projects"
-                >
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </div>
-              <p className="text-xs text-slate-600 font-medium leading-relaxed mb-4">
-                clients have already received our net-zero certification worldwide.
-              </p>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3].map((portrait) => (
-                    <Image
-                      key={portrait}
-                      src={`/images/clients/client-portrait-${portrait}.jpg`}
-                      alt={`Client portrait ${portrait}`}
-                      width={40}
-                      height={40}
-                      sizes="40px"
-                      className="h-10 w-10 rounded-full border-2 border-white object-cover"
-                    />
-                  ))}
+              
+              
+             
+
+              {/* Currently running project */}
+              <Link
+                href="/projects/fakir-eco-knitwear"
+                className="mb-4 flex items-center gap-3 rounded-2xl border border-emerald-100 bg-emerald-50/80 p-3 transition-all hover:border-emerald-200 hover:bg-emerald-50"
+                aria-label="View Fakir Eco Knitwear running project"
+              >
+                <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-emerald-100 bg-white shadow-sm">
+                  <Image
+                    src="/images/clients/fakir-eco-knitwear-logo.webp"
+                    alt="Fakir Eco Knitwear Ltd"
+                    width={44}
+                    height={44}
+                    sizes="44px"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
-                <span className="text-[11px] font-semibold text-slate-500">
-                  Our client partners
-                </span>
-              </div>
+                <div className="min-w-0 flex-1">
+                  <div className="mb-1 flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+                    <span className="text-[9px] font-black uppercase tracking-[0.16em] text-emerald-700">
+                      Running project
+                    </span>
+                  </div>
+                  <p className="truncate text-xs font-bold text-slate-950">
+                    Fakir Eco Knitwear
+                  </p>
+                  <p className="mt-0.5 truncate text-[10px] font-medium text-slate-500">
+                    Narayanganj, Bangladesh
+                  </p>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-emerald-700" />
+              </Link>
+
               {/* Progress bar animation */}
               <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
                 <div
