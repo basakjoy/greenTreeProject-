@@ -31,12 +31,10 @@ const heroSlides = [
 ];
 
 const SLIDE_DURATION = 7000; // ms between auto-advances
-const TRANSITION_MS  = 1200; // crossfade duration (must match CSS)
+const TRANSITION_MS = 1200; // crossfade duration
 
 export function Hero() {
-  const [current, setCurrent]     = useState(0);
-  const [next,    setNext]        = useState<number | null>(null); // slide being faded in
-  const [transitioning, setTransitioning] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   const sectionRef = useRef<HTMLElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -108,21 +106,10 @@ export function Hero() {
     };
   }, []);
 
-  // Smooth slide transition
-  const goTo = useCallback(
-    (index: number) => {
-      if (transitioning || index === current) return;
-      setTransitioning(true);
-      setNext(index);
-
-      setTimeout(() => {
-        setCurrent(index);
-        setNext(null);
-        setTransitioning(false);
-      }, TRANSITION_MS);
-    },
-    [current, transitioning],
-  );
+  // Persistent slide layers crossfade directly, so transitions remain interruptible.
+  const goTo = useCallback((index: number) => {
+    setCurrent(index);
+  }, []);
 
   // Auto-advance
   useEffect(() => {
@@ -149,19 +136,13 @@ export function Hero() {
             key={slide.id}
             className={cn(
               'absolute inset-0 w-full h-full',
-              // Ken Burns: current slide subtly zooms in while shown
               i === current ? 'opacity-100' : 'opacity-0',
             )}
             style={{
-              transition: `opacity ${TRANSITION_MS}ms cubic-bezier(0.4,0,0.2,1)`,
-              // slight continuous zoom on current active slide
+              transitionProperty: 'opacity, transform',
+              transitionDuration: `${TRANSITION_MS}ms, ${SLIDE_DURATION}ms`,
+              transitionTimingFunction: 'cubic-bezier(0.4,0,0.2,1), linear',
               transform: i === current ? 'scale(1.06)' : 'scale(1)',
-              // transition for scale: longer so it's invisible zoom-in during 7s
-              transitionProperty: i === current ? 'opacity, transform' : 'opacity',
-              transitionDuration:
-                i === current ? `${TRANSITION_MS}ms, 8000ms` : `${TRANSITION_MS}ms`,
-              transitionTimingFunction:
-                i === current ? 'cubic-bezier(0.4,0,0.2,1), linear' : 'cubic-bezier(0.4,0,0.2,1)',
             }}
           >
             <Image
@@ -174,25 +155,6 @@ export function Hero() {
             />
           </div>
         ))}
-
-        {/* Incoming slide fading in on top */}
-        {next !== null && (
-          <div
-            key={`next-${next}`}
-            className="absolute inset-0 w-full h-full"
-            style={{
-              animation: `heroFadeIn ${TRANSITION_MS}ms cubic-bezier(0.4,0,0.2,1) forwards`,
-            }}
-          >
-            <Image
-              src={heroSlides[next].image}
-              alt={heroSlides[next].title}
-              fill
-              sizes="100vw"
-              className="object-cover object-center w-full h-full"
-            />
-          </div>
-        )}
 
         {/* ── Gradient Overlays ── */}
         {/* Top-to-mid dark: header legibility */}
@@ -303,7 +265,6 @@ export function Hero() {
                 key={slide.id}
                 type="button"
                 onClick={() => goTo(index)}
-                disabled={transitioning}
                 aria-label={`Go to slide ${index + 1}: ${slide.title}`}
                 className={cn(
                   'px-3.5 py-1.5 rounded-full text-[11px] font-bold tracking-wider transition-all duration-300 backdrop-blur-md',
@@ -376,13 +337,6 @@ export function Hero() {
 
       </div>
 
-      {/* ─── KEYFRAME INJECT (nextjs global styles can't do component-scoped keyframes) ── */}
-      <style>{`
-        @keyframes heroFadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-      `}</style>
     </section>
   );
 }
