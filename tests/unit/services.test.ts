@@ -23,9 +23,9 @@ describe('Official Content & Verified Company Services', () => {
     expect(servicesList.some((s) => s.slug === 'overall-leed-facilitation')).toBe(true);
   });
 
-  it('retrieves official 5 client projects including Wonderland Toy and Fakir Eco Knitwear', async () => {
+  it('retrieves all 15 client projects including Wonderland Toy and Fakir Eco Knitwear', async () => {
     const projectsList = await getProjects();
-    expect(projectsList.length).toBe(5);
+    expect(projectsList.length).toBe(15);
     expect(projectsList.some((p) => p.slug === 'wonderland-toy')).toBe(true);
     expect(projectsList.some((p) => p.slug === 'fakir-eco-knitwear')).toBe(true);
     expect(projectsList.some((p) => p.slug === 'mansion-d-salam')).toBe(true);
@@ -33,7 +33,7 @@ describe('Official Content & Verified Company Services', () => {
 
   it('retrieves clients and official memberships (IAB, IEB, RAJUK)', async () => {
     const clients = await getClients();
-    expect(clients.length).toBe(7);
+    expect(clients.length).toBe(15);
     expect(clients.some((c) => c.name === 'Navana Group')).toBe(true);
     expect(clients.some((c) => c.name === 'Ahsan Group')).toBe(true);
 

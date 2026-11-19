@@ -66,7 +66,7 @@ export default function TrainingPage() {
         <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 lg:p-20 relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0">
             <Image
-              src="/images/hero/hero-green-facade.jpg"
+              src="/images/hero/hero-tower.jpg"
               alt=""
               fill
               priority

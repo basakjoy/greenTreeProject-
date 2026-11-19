@@ -66,7 +66,7 @@ export function BentoGrid() {
         {/* Center Column: Visual Feature */}
         <div className="group relative rounded-3xl sm:rounded-4xl overflow-hidden border border-forest-200 shadow-lift min-h-[420px] lg:min-h-full flex flex-col justify-end p-6 sm:p-8">
           <Image
-            src="/images/hero/hero-sculptural-courtyard.jpg"
+            src="/images/hero/hero-residential-tower.jpg"
             alt="Green Tree Architectural Courtyard and Sculptural Landscape"
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"

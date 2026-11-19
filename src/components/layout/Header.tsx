@@ -119,23 +119,11 @@ export function Header() {
           'transition-all duration-500 ease-out',
           darkMode
             ? // Home-page top: transparent over dark hero
-              'bg-gradient-to-b from-black/50 via-black/20 to-transparent py-0 border-b border-transparent shadow-none'
+              'bg-gradient-to-b from-black/50 via-black/20 to-transparent py-0 shadow-none'
             : // Scrolled OR interior pages: crisp white
-              'bg-white/95 backdrop-blur-xl border-b border-gray-200/80 shadow-[0_1px_20px_rgba(0,0,0,0.08)] py-0',
+              'bg-white/95 backdrop-blur-xl shadow-none py-0',
         )}
       >
-        {/* Green accent line — only visible on scrolled/white mode */}
-        <div
-          className={cn(
-            'h-[2.5px] w-full transition-opacity duration-500',
-            darkMode ? 'opacity-0' : 'opacity-100',
-          )}
-          style={{
-            background:
-              'linear-gradient(90deg, transparent 0%, #16a34a 25%, #22c55e 55%, #16a34a 75%, transparent 100%)',
-          }}
-        />
-
         <div className="max-w-page-max mx-auto px-5 sm:px-8 lg:px-14 flex items-center h-[70px]">
 
           {/* ── LOGO ── */}

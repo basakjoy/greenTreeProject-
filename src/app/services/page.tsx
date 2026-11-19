@@ -54,7 +54,7 @@ export default async function ServicesPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-10 max-w-page-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {servicesList.map((service, index) => {
-            const img = serviceImages[service.slug] || '/images/hero/hero-green-facade.jpg';
+            const img = serviceImages[service.slug] || '/images/hero/hero-tower.jpg';
             return (
               <div
                 key={service.slug}

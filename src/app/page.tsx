@@ -48,7 +48,7 @@ export default async function HomePage() {
         '@type': 'ProfessionalService',
         '@id': 'https://www.greentreebd.com/#professionalservice',
         name: 'Green Tree Building Consultants',
-        image: 'https://www.greentreebd.com/images/hero/hero-green-facade.jpg',
+        image: 'https://www.greentreebd.com/images/hero/hero-tower.jpg',
         telephone: '+8801922943373',
         email: 'greentreebangladesh@gmail.com',
         priceRange: '$$$',

@@ -176,10 +176,10 @@ const VERIFIED_PROJECTS = [
       'Balancing high-density precision manufacturing heat loads with worker thermal comfort and strict export quality compliance.',
     solution:
       'Green Tree engineered optimized daylight monitors, high-efficiency mechanical ventilation, and thermal envelope insulation to significantly reduce operational electricity consumption.',
-    imageUrl: '/images/hero/hero-green-facade.jpg',
+    imageUrl: '/images/hero/hero-tower.jpg',
     gallery: [
-      '/images/hero/hero-green-facade.jpg',
-      '/images/hero/hero-sculptural-courtyard.jpg',
+      '/images/hero/hero-tower.jpg',
+      '/images/hero/hero-residential-tower.jpg',
     ],
     isFeatured: 1,
     completedYear: 2023,
@@ -203,10 +203,10 @@ const VERIFIED_PROJECTS = [
       'Creating an iconic architectural statement upholding the philosophy that "design is everything" while integrating high-efficiency HVAC and private biophilic greenery.',
     solution:
       'Chief Architect conceptualized an interlinked indoor-outdoor spatial flow featuring insulated glazing, solar shading louvres, and greywater landscape harvesting.',
-    imageUrl: '/images/hero/hero-sculptural-courtyard.jpg',
+    imageUrl: '/images/hero/hero-residential-tower.jpg',
     gallery: [
-      '/images/hero/hero-sculptural-courtyard.jpg',
-      '/images/hero/hero-biophilic-dome.jpg',
+      '/images/hero/hero-residential-tower.jpg',
+      '/images/hero/hero-mosque.jpg',
     ],
     isFeatured: 1,
     completedYear: 2024,
@@ -230,10 +230,10 @@ const VERIFIED_PROJECTS = [
       'Meeting rigorous international apparel buyer sustainability standards while mitigating heavy process energy and water demands.',
     solution:
       'Conducted whole-building energy and daylight simulations, introduced waste-heat recovery systems, and facilitated complete environmental documentation.',
-    imageUrl: '/images/hero/hero-biophilic-dome.jpg',
+    imageUrl: '/images/hero/hero-mosque.jpg',
     gallery: [
-      '/images/hero/hero-biophilic-dome.jpg',
-      '/images/hero/hero-green-facade.jpg',
+      '/images/hero/hero-mosque.jpg',
+      '/images/hero/hero-tower.jpg',
     ],
     isFeatured: 1,
     completedYear: 2023,
@@ -257,9 +257,9 @@ const VERIFIED_PROJECTS = [
       'Developing a cost-effective design that satisfies buyer compliance audits while maintaining strict architectural refinement.',
     solution:
       'Our interdisciplinary firm integrated structural, MEP, and estimator teams to optimize material use and implement passive cross-ventilation.',
-    imageUrl: '/images/hero/hero-green-facade.jpg',
+    imageUrl: '/images/hero/hero-tower.jpg',
     gallery: [
-      '/images/hero/hero-green-facade.jpg',
+      '/images/hero/hero-tower.jpg',
     ],
     isFeatured: 0,
     completedYear: 2022,
@@ -283,10 +283,10 @@ const VERIFIED_PROJECTS = [
       'Managing expansive industrial floor plates with extensive steam, dyeing, and knitting processes across a multi-building masterplan.',
     solution:
       'Comprehensive tender and design document reviews, advanced energy simulations, and complete LEED facilitation across all operational zones.',
-    imageUrl: '/images/hero/hero-biophilic-dome.jpg',
+    imageUrl: '/images/hero/hero-mosque.jpg',
     gallery: [
-      '/images/hero/hero-biophilic-dome.jpg',
-      '/images/hero/hero-sculptural-courtyard.jpg',
+      '/images/hero/hero-mosque.jpg',
+      '/images/hero/hero-residential-tower.jpg',
     ],
     isFeatured: 0,
     completedYear: 2024,

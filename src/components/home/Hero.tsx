@@ -9,24 +9,24 @@ import { cn } from '@/lib/utils';
 const heroSlides = [
   {
     id: 0,
-    tag: '01 Living Façade',
-    title: 'Living Vertical Green Façade',
-    image: '/images/hero/hero-green-facade.jpg',
-    description: 'Microclimate façade with living biophilic envelope and high-performance solar glass.',
+    tag: '01 Commercial Tower',
+    title: 'Modern Commercial Tower',
+    image: '/images/hero/hero-tower.jpg',
+    description: 'Contemporary mixed-use tower designed with a strong urban presence and expansive glass façade.',
   },
   {
     id: 1,
-    tag: '02 Forest Atrium',
-    title: 'Biophilic Forest Dome Atrium',
-    image: '/images/hero/hero-biophilic-dome.jpg',
-    description: 'Naturally ventilated interior forest canopy under a parametric daylighting dome.',
+    tag: '02 Cultural Landmark',
+    title: 'Zebun Nessa Mosque',
+    image: '/images/hero/hero-mosque.jpg',
+    description: 'A monumental civic landmark shaped by sculptural concrete walls and a rhythmic façade.',
   },
   {
     id: 2,
-    tag: '03 Eco Pavilion',
-    title: 'Sculptural Net-Zero Pavilion',
-    image: '/images/hero/hero-sculptural-courtyard.jpg',
-    description: 'Curved passive solar envelope harmonized with a biophilic courtyard landscape.',
+    tag: '03 Residential Tower',
+    title: 'Contemporary Residential Tower',
+    image: '/images/hero/hero-residential-tower.jpg',
+    description: 'Red-toned residential architecture framed with greenery and generous outdoor balconies.',
   },
 ];
 
