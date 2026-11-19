@@ -8,6 +8,7 @@ import { LeadershipSection } from '@/components/home/LeadershipSection';
 import { EstimatorTeaser } from '@/components/home/EstimatorTeaser';
 import { PartnerLogos } from '@/components/home/PartnerLogos';
 import { CtaSection } from '@/components/home/CtaSection';
+import { CompanyVideo } from '@/components/home/CompanyVideo';
 import { ParallaxSection } from '@/components/ui/ParallaxSection';
 import { getServices, getProjects, getClients } from '@/server/services/content';
 import Link from 'next/link';
@@ -79,6 +80,7 @@ export default async function HomePage() {
         <ParallaxSection speed={0.03}>
           <PartnerLogos />
         </ParallaxSection>
+        <CompanyVideo />
         
         {/* Verified Stats Bar */}
         {/* <ParallaxSection speed={0.06}>
@@ -143,7 +145,7 @@ export default async function HomePage() {
                         alt={project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-contain p-2 group-hover:scale-[1.03] transition-transform duration-500"
+                        className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-forest-950/55 via-transparent to-transparent pointer-events-none" />
                       <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/85 backdrop-blur-md text-eco-300 border border-forest-700/60">

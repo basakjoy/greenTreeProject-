@@ -56,7 +56,7 @@ export default async function JobDetailPage({ params }: Props) {
 
       {/* Hero Banner */}
       <section className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+        <div className="page-image-hero rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-eco/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl">

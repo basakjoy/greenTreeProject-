@@ -81,7 +81,7 @@ export default function DesignSystemPage() {
       </header>
 
       {/* 2. HERO SECTION WITH PARTICLE CLOUD CANVAS */}
-      <section id="hero" className="relative min-h-[90vh] flex flex-col justify-between overflow-hidden">
+      <section id="hero" className="page-image-hero relative min-h-[90vh] flex flex-col justify-between overflow-hidden">
         {/* Full-bleed particle cloud canvas */}
         <ParticleCloudCanvas />
 

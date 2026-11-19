@@ -34,6 +34,7 @@ const securityHeaders = [
       script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com https://plausible.io;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       img-src 'self' data: blob: https://images.unsplash.com https://*.r2.cloudflarestorage.com;
+      media-src 'self' https://res.cloudinary.com;
       font-src 'self' https://fonts.gstatic.com;
       connect-src 'self' https://challenges.cloudflare.com https://plausible.io;
       frame-src https://challenges.cloudflare.com;

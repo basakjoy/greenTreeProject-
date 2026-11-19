@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { CustomCursor } from '@/components/ui/CustomCursor';
 
 export const viewport: Viewport = {
   themeColor: '#09190D',
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="font-sans antialiased scroll-smooth" data-scroll-behavior="smooth">
       <body className="min-h-screen flex flex-col bg-sand-100 text-forest-900 selection:bg-eco-200 selection:text-forest-950 overflow-x-hidden">
+        <CustomCursor />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

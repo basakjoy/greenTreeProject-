@@ -58,7 +58,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       <article className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
-        <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 relative overflow-hidden shadow-2xl mb-10">
+        <div className="page-image-hero rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-14 relative overflow-hidden shadow-2xl mb-10">
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-forest-900 border border-forest-750 text-eco mb-4">
               <Award className="w-3.5 h-3.5" />

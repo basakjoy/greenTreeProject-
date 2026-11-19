@@ -69,7 +69,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
         {/* Hero Banner */}
         <section className="max-w-page-max mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-          <div className="rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+          <div className="page-image-hero rounded-3xl sm:rounded-4xl bg-forest-950 text-white p-8 sm:p-12 relative overflow-hidden shadow-2xl">
             <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-forest-900 border border-forest-700 text-eco mb-4">
                 <ShieldCheck className="w-3.5 h-3.5" />

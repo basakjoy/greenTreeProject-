@@ -22,7 +22,6 @@ const clients: Client[] = [
   { name: 'Ahsan Group', logo: '/images/clients/ahsan.png' },
   { name: 'Wonderland Toys', logo: '/images/clients/wonderlandToy.png' },
   { name: 'Palmal Group', logo: '/images/clients/palmal.png' },
-  { name: 'J&H', logo: '/images/clients/J&h group.png' },
   { name: 'Fakir Group', logo: '/images/clients/fakirGroup.png' },
   { name: 'Cosmic Group', logo: '/images/clients/cosmicGroup.png' },
   { name: 'Anwar Landmark', logo: '/images/clients/anwar-landmark.png' },
@@ -111,7 +110,7 @@ function LogoCard({ client }: { client: Client }) {
           loading="lazy"
           draggable={false}
           onError={() => setFailed(true)}
-          className="max-h-12 w-auto max-w-full select-none object-contain opacity-60 grayscale transition-all duration-500 ease-out group-hover/card:scale-110 group-hover/card:opacity-100 group-hover/card:grayscale-0"
+          className="max-h-12 w-auto max-w-full select-none object-contain transition-all duration-500 ease-out group-hover/card:scale-110"
         />
       ) : (
         /* Fallback when the logo file is missing */

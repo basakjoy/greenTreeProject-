@@ -83,7 +83,7 @@ const PILLARS = [
 ];
 
 const QUOTE =
-  'Sustainable architecture in Bangladesh is no longer just about compliance—it is an economic and environmental imperative for global competitiveness.';
+  'Sustainable architecture in Bangladesh is no longer just about compliance it is an economic and environmental imperative for global competitiveness.';
 
 /* ---------- Sub-components ---------- */
 
@@ -242,7 +242,7 @@ export function LeadershipSection() {
                       Rubana Nasrin
                     </h3>
                     <p className="text-xs text-eco font-bold mt-0.5">
-                      Chief Executive Officer &amp; Founder, Green Tree
+                     Edge Expert, CEO &amp; Founder, Green Tree
                     </p>
                   </div>
                   <div className="w-10 h-10 rounded-xl bg-forest-800 border border-forest-600 flex items-center justify-center shrink-0">
