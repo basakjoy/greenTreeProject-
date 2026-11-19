@@ -62,7 +62,7 @@ export default async function ProjectsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-950/55 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Sector Pill */}
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/85 backdrop-blur-md text-emerald-300 border border-forest-700/60">
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/85 backdrop-blur-md text-eco-300 border border-forest-700/60">
                     {project.sector}
                   </div>
 

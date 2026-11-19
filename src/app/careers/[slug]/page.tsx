@@ -80,7 +80,7 @@ export default async function JobDetailPage({ params }: Props) {
                 {job.employmentType}
               </span>
               {(job.salaryMin || job.salaryMax) && (
-                <span className="flex items-center gap-1.5 font-semibold text-emerald-300">
+                <span className="flex items-center gap-1.5 font-semibold text-eco-300">
                   <Briefcase className="w-4 h-4 text-eco" />
                   {formatSalary(job.salaryMin, job.salaryMax)}
                 </span>
@@ -152,7 +152,7 @@ export default async function JobDetailPage({ params }: Props) {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-xs sm:text-sm hover:bg-emerald-400 transition-all shadow-glow shrink-0"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-xs sm:text-sm hover:bg-eco-400 transition-all shadow-glow shrink-0"
             >
               <span>Apply via Studio Contact</span>
               <ArrowUpRight className="w-4 h-4" />

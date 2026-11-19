@@ -83,7 +83,7 @@ export function ServicesGrid({ services }: { services: ServiceItem[] }) {
                   <div className="service-shimmer absolute inset-y-0 w-1/3 -skew-x-12 bg-white/30" />
                   
                   {service.badge && (
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/90 backdrop-blur-md text-emerald-300 border border-forest-700/60 shadow-lg">
+                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold bg-forest-950/90 backdrop-blur-md text-eco-300 border border-forest-700/60 shadow-lg">
                       {service.badge}
                     </div>
                   )}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Briefcase } from 'lucide-react';
 
 /* -------------------------------------------------------------------------- */
@@ -44,14 +45,17 @@ const memberships: Membership[] = [
   {
     acronym: 'IAB',
     name: 'Institute of Architects Bangladesh',
+    logo: '/images/memberships/iab-logo.png',
   },
   {
     acronym: 'IEB',
     name: 'Institute of Engineers Bangladesh',
+    logo: '/images/memberships/ieb-logo.png',
   },
   {
     acronym: 'RAJUK',
     name: 'Rajdhani Unnayan Kartripakkha',
+    logo: '/images/memberships/rajuk-logo.png',
   },
 ];
 
@@ -123,7 +127,7 @@ function LogoCard({ client }: { client: Client }) {
 
       {/* Small name tag that slides up on hover */}
       {!failed && (
-        <span className="pointer-events-none absolute bottom-1.5 translate-y-1 text-[10px] font-semibold text-emerald-800 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
+        <span className="pointer-events-none absolute bottom-1.5 translate-y-1 text-[10px] font-semibold text-eco-800 opacity-0 transition-all duration-300 group-hover/card:translate-y-0 group-hover/card:opacity-100">
           {client.name}
         </span>
       )}
@@ -207,9 +211,9 @@ export function PartnerLogos() {
           to   { transform: translateX(0); }
         }
         @keyframes pulse-ring {
-          0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
-          70%  { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+          0%   { box-shadow: 0 0 0 0 rgba(0, 155, 64, 0.55); }
+          70%  { box-shadow: 0 0 0 7px rgba(0, 155, 64, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(0, 155, 64, 0); }
         }
 
         .marquee-group {
@@ -319,32 +323,37 @@ function MembershipBadge({
     <div
       title={membership.name}
       style={{ transitionDelay: `${delay + 250}ms` }}
-      className={`inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-forest-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-forest-950 transition-all duration-300 ease-out ${
+      className={`inline-flex min-h-12 items-center gap-3 rounded-2xl border border-forest-200 bg-white px-3.5 py-2 text-xs font-semibold text-forest-950 shadow-sm transition-all duration-300 ease-out hover:border-forest-300 hover:shadow-subtle ${
         show ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
       }`}
     >
-      {/* {hasLogo ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={membership.logo}
-          alt={`${membership.acronym} logo`}
-          loading="lazy"
-          draggable={false}
-          onError={() => setFailed(true)}
-          className="h-5 w-5 rounded-full bg-white object-contain p-0.5"
-        />
+      {hasLogo ? (
+        <div className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-sand-50 p-1 border border-forest-100">
+          <Image
+            src={membership.logo!}
+            alt={`${membership.acronym} logo`}
+            width={32}
+            height={32}
+            className="h-full w-full object-contain"
+            onError={() => setFailed(true)}
+          />
+        </div>
       ) : (
         <span
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-eco/30 bg-eco-50 text-[9px] font-extrabold text-forest-900"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-eco/30 bg-eco-50 text-[10px] font-extrabold text-forest-900"
           aria-hidden="true"
         >
           {membership.acronym.slice(0, 1)}
         </span>
-      )} */}
-      <span className="font-bold">{membership.acronym}</span>
-      <span className="hidden max-w-44 text-[11px] leading-tight text-gray-500 lg:inline">
-        {membership.name}
-      </span>
+      )}
+      <div className="flex flex-col text-left">
+        <span className="font-display font-extrabold text-xs text-forest-950 leading-tight">
+          {membership.acronym}
+        </span>
+        <span className="hidden text-[10px] text-gray-500 font-medium leading-tight sm:inline max-w-[160px] truncate">
+          {membership.name}
+        </span>
+      </div>
     </div>
   );
 }

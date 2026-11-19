@@ -61,7 +61,7 @@ export function TeamSection({ fellows }: { fellows: FellowItem[] }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
                 
                 {/* Credential Badge */}
-                <div className="absolute bottom-3 left-3 right-3 px-2.5 py-1 rounded-xl bg-forest-950/85 backdrop-blur-md text-[11px] font-bold text-emerald-300 border border-forest-700/60 truncate">
+                <div className="absolute bottom-3 left-3 right-3 px-2.5 py-1 rounded-xl bg-forest-950/85 backdrop-blur-md text-[11px] font-bold text-eco-300 border border-forest-700/60 truncate">
                   {fellow.credential}
                 </div>
               </div>

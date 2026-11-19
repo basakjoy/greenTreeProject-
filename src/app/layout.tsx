@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
 export const viewport: Viewport = {
-  themeColor: '#0E241B',
+  themeColor: '#09190D',
   width: 'device-width',
   initialScale: 1,
 };

@@ -288,10 +288,10 @@ export function Hero() {
               {/* Currently running project */}
               <Link
                 href="/projects/fakir-eco-knitwear"
-                className="mb-4 flex items-center gap-3 rounded-2xl border border-emerald-100 bg-emerald-50/80 p-3 transition-all hover:border-emerald-200 hover:bg-emerald-50"
+                className="mb-4 flex items-center gap-3 rounded-2xl border border-eco-100 bg-eco-50/80 p-3 transition-all hover:border-eco-200 hover:bg-eco-50"
                 aria-label="View Fakir Eco Knitwear running project"
               >
-                <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-emerald-100 bg-white shadow-sm">
+                <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-eco-100 bg-white shadow-sm">
                   <Image
                     src="/images/clients/fakir-eco-knitwear-logo.webp"
                     alt="Fakir Eco Knitwear Ltd"
@@ -303,8 +303,8 @@ export function Hero() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="mb-1 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-                    <span className="text-[9px] font-black uppercase tracking-[0.16em] text-emerald-700">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-eco" />
+                    <span className="text-[9px] font-black uppercase tracking-[0.16em] text-eco-700">
                       Running project
                     </span>
                   </div>
@@ -315,13 +315,13 @@ export function Hero() {
                     Narayanganj, Bangladesh
                   </p>
                 </div>
-                <ArrowUpRight className="h-4 w-4 shrink-0 text-emerald-700" />
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-eco-700" />
               </Link>
 
               {/* Progress bar animation */}
               <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full"
+                  className="h-full bg-gradient-to-r from-eco-400 to-forest-600 rounded-full"
                   style={{
                     width: `${((current + 1) / heroSlides.length) * 100}%`,
                     transition: 'width 0.5s ease',

@@ -535,18 +535,21 @@ export const OFFICIAL_MEMBERSHIPS = [
     name: 'Institute of Architects Bangladesh',
     badge: 'Registered Member',
     description: 'Upholding highest national standards of architectural practice and ethics.',
+    logo: '/images/memberships/iab-logo.png',
   },
   {
     acronym: 'IEB',
     name: 'Institute of Engineers Bangladesh',
     badge: 'Registered Member',
     description: 'Certified multidisciplinary engineering practice and technical integrity.',
+    logo: '/images/memberships/ieb-logo.png',
   },
   {
     acronym: 'RAJUK',
     name: 'Rajdhani Unnayan Kartripakkha',
     badge: 'Enlisted Firm',
     description: 'Authorized consultancy for building code approvals in metropolitan Dhaka.',
+    logo: '/images/memberships/rajuk-logo.png',
   },
 ];
 

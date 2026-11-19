@@ -151,18 +151,35 @@ export default async function AboutPage() {
             {memberships.map((m) => (
               <div
                 key={m.acronym}
-                className="bg-white p-6 rounded-2xl border border-forest-100 shadow-subtle"
+                className="bg-white p-6 sm:p-7 rounded-3xl border border-forest-100 shadow-subtle hover:shadow-lift transition-all flex flex-col justify-between group"
               >
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-forest-50 text-forest-900 border border-forest-200 mb-3">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-eco" />
-                  <span>{m.acronym}</span>
+                <div>
+                  <div className="flex items-center justify-between gap-3 mb-5">
+                    <div className="relative w-14 h-14 rounded-2xl bg-sand-50 border border-forest-100 flex items-center justify-center p-2 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+                      {m.logo ? (
+                        <Image
+                          src={m.logo}
+                          alt={`${m.acronym} official emblem`}
+                          width={56}
+                          height={56}
+                          className="h-full w-full object-contain"
+                        />
+                      ) : (
+                        <CheckCircle2 className="w-6 h-6 text-eco" />
+                      )}
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-forest-50 text-forest-900 border border-forest-200">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-eco" />
+                      <span>{m.acronym}</span>
+                    </span>
+                  </div>
+                  <h4 className="font-display font-bold text-base sm:text-lg text-forest-950 mb-1.5">
+                    {m.name}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    {m.description}
+                  </p>
                 </div>
-                <h4 className="font-display font-bold text-base text-forest-950 mb-1">
-                  {m.name}
-                </h4>
-                <p className="text-xs text-gray-600 leading-relaxed">
-                  {m.description}
-                </p>
               </div>
             ))}
           </div>
@@ -199,7 +216,7 @@ export default async function AboutPage() {
                     className="object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 px-2 py-1 rounded-xl bg-forest-950/85 backdrop-blur-md text-[10px] font-bold text-emerald-300 border border-forest-700/60 truncate">
+                  <div className="absolute bottom-3 left-3 right-3 px-2 py-1 rounded-xl bg-forest-950/85 backdrop-blur-md text-[10px] font-bold text-eco-300 border border-forest-700/60 truncate">
                     {member.credential}
                   </div>
                 </div>

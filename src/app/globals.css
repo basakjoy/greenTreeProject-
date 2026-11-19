@@ -5,11 +5,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #f7f9f6;
-  --foreground: #0e241b;
-  --color-brand-forest: #0e241b;
-  --color-brand-offwhite: #f7f9f6;
-  --color-brand-accent: #22c55e;
+  --background: #f4f7f3;
+  --foreground: #09190d;
+  --color-brand-forest: #0f2613;
+  --color-brand-offwhite: #f4f7f3;
+  --color-brand-accent: #009b40;
+  --color-brand-canopy: #35803b;
   --text-hero: clamp(2.5rem, 1.2rem + 5vw, 6.5rem);
   --text-h2: clamp(1.75rem, 1.2rem + 2vw, 3.5rem);
   --text-h3: clamp(1.25rem, 1rem + 1vw, 2rem);
@@ -154,7 +155,7 @@ body {
 .home-page-content {
   background-color: var(--background);
   background-image:
-    linear-gradient(rgba(247, 249, 246, 0.784), rgba(247, 249, 246, 0.663)),
+    linear-gradient(rgba(244, 247, 243, 0.82), rgba(244, 247, 243, 0.70)),
     url('/images/backgrounds/building-design-sketch.jpeg');
   background-position: center top;
   background-size: cover;
@@ -180,7 +181,7 @@ body {
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(34, 197, 94, 0.35);
+  border-color: rgba(0, 155, 64, 0.35);
 }
 
 .service-logo-motion {
@@ -250,31 +251,31 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0e241b;
+  background: #09190d;
 }
 ::-webkit-scrollbar-thumb {
-  background: #265743;
+  background: #23562c;
   border-radius: 4px;
 }
 @media (hover: hover) {
   ::-webkit-scrollbar-thumb:hover {
-    background: #347057;
+    background: #35803b;
   }
 }
 
 /* Glassmorphism utility */
 .glass-panel {
-  background: rgba(14, 36, 27, 0.75);
+  background: rgba(9, 25, 13, 0.80);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-card-light {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(225, 239, 232, 0.8);
+  border: 1px solid rgba(204, 231, 208, 0.80);
 }
 
 /* Atlantic Design System Utilities */

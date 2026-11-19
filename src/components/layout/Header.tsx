@@ -201,7 +201,7 @@ export function Header() {
                       {active && (
                         <span
                           className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-eco"
-                          style={{ boxShadow: '0 0 6px 2px rgba(34,197,94,0.55)' }}
+                          style={{ boxShadow: '0 0 6px 2px rgba(0,155,64,0.65)' }}
                         />
                       )}
                     </Link>

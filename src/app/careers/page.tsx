@@ -1,8 +1,22 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPublishedJobs, FALLBACK_JOBS } from '@/server/services/jobs';
-import { Briefcase, MapPin, Clock, ArrowUpRight, Sparkles, Award, ChevronRight } from 'lucide-react';
+import {
+  Briefcase,
+  MapPin,
+  Clock,
+  ArrowUpRight,
+  Sparkles,
+  Award,
+  ChevronRight,
+  Leaf,
+  GraduationCap,
+  HeartPulse,
+  TrendingUp,
+  Globe,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Careers | Green Tree Building Consultants',
@@ -37,32 +51,32 @@ function formatSalary(min: number | null, max: number | null): string {
 
 const PERKS = [
   {
-    icon: '🌿',
+    icon: Leaf,
     title: 'Sustainability-First Culture',
     desc: 'Every project directly advances Bangladesh’s green-building transition and net-zero engineering.',
   },
   {
-    icon: '🎓',
+    icon: GraduationCap,
     title: 'Sponsored Professional Credentials',
     desc: 'LEED AP, EDGE Expert, and WELL AP exam registration & preparation fees fully covered by GTBC.',
   },
   {
-    icon: '🏥',
+    icon: HeartPulse,
     title: 'Comprehensive Healthcare',
     desc: 'Family medical, hospitalization, and life insurance benefits active from Day 1 of joining.',
   },
   {
-    icon: '⏱️',
+    icon: Clock,
     title: 'Flexible Hybrid Practice',
     desc: 'A healthy balance of vibrant in-studio architectural collaboration and quiet remote deep-work days.',
   },
   {
-    icon: '📈',
+    icon: TrendingUp,
     title: 'Milestone & Profit Bonuses',
     desc: 'Project-completion milestone incentives and annual studio profit-sharing bonuses for all staff.',
   },
   {
-    icon: '🌍',
+    icon: Globe,
     title: 'International Network & GBCI Audits',
     desc: 'Collaborate directly with global green-building certification bodies, regional partners, and auditors.',
   },
@@ -98,7 +112,7 @@ export default async function CareersPage() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#open-positions"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-emerald-400 transition-all shadow-glow"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-eco text-forest-950 font-bold text-sm hover:bg-eco-400 transition-all shadow-glow"
               >
                 <span>View Open Positions</span>
                 <ChevronRight className="w-4 h-4" />
@@ -130,11 +144,11 @@ export default async function CareersPage() {
           {PERKS.map((perk, i) => (
             <div
               key={perk.title}
-              className="bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-subtle hover:shadow-lift hover:border-eco/40 transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-subtle hover:shadow-lift hover:border-eco/40 transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-forest-50 border border-forest-100 flex items-center justify-center text-eco mb-5">
-                  <span className="text-2xl">{perk.icon}</span>
+                <div className="w-12 h-12 rounded-2xl bg-forest-50 border border-forest-100 flex items-center justify-center text-eco mb-5 group-hover:bg-eco group-hover:text-forest-950 group-hover:scale-105 transition-all duration-300">
+                  <perk.icon className="w-6 h-6 stroke-[2]" />
                 </div>
                 <span className="text-[11px] font-bold text-eco uppercase tracking-wider">
                   Benefit 0{i + 1}
@@ -199,7 +213,7 @@ export default async function CareersPage() {
                         className={`px-3 py-1 rounded-full text-xs font-bold border ${
                           isClosed
                             ? 'bg-red-50 text-red-600 border-red-200'
-                            : 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                            : 'bg-eco-50 text-eco-700 border-eco-200'
                         }`}
                       >
                         {closingLabel}
@@ -259,18 +273,43 @@ export default async function CareersPage() {
           <span className="text-xs font-bold text-gray-500 uppercase tracking-widest block mb-4">
             Recognised &amp; Registered With
           </span>
-          <div className="flex flex-wrap justify-center gap-3">
-            {['Institute of Architects Bangladesh (IAB)', 'Institute of Engineers Bangladesh (IEB)', 'RAJUK'].map(
-              (m) => (
-                <span
-                  key={m}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-forest-950 text-emerald-300 text-xs font-bold border border-forest-800"
-                >
-                  <Award className="w-3.5 h-3.5 text-eco" />
-                  <span>{m}</span>
-                </span>
-              ),
-            )}
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              {
+                acronym: 'IAB',
+                name: 'Institute of Architects Bangladesh',
+                logo: '/images/memberships/iab-logo.png',
+              },
+              {
+                acronym: 'IEB',
+                name: 'Institute of Engineers Bangladesh',
+                logo: '/images/memberships/ieb-logo.png',
+              },
+              {
+                acronym: 'RAJUK',
+                name: 'Rajdhani Unnayan Kartripakkha',
+                logo: '/images/memberships/rajuk-logo.png',
+              },
+            ].map((m) => (
+              <div
+                key={m.acronym}
+                className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-forest-950 text-white text-xs font-bold border border-forest-800 shadow-sm"
+              >
+                <div className="relative w-7 h-7 rounded-lg bg-white p-1 flex items-center justify-center overflow-hidden shrink-0">
+                  <Image
+                    src={m.logo}
+                    alt={`${m.acronym} logo`}
+                    width={28}
+                    height={28}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <div className="text-left">
+                  <span className="text-eco font-extrabold block text-xs">{m.acronym}</span>
+                  <span className="text-gray-300 text-[11px] font-normal hidden sm:inline">{m.name}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

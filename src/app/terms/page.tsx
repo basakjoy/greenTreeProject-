@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ShieldCheck, ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -57,9 +58,32 @@ export default function TermsPage() {
 
           <div>
             <h2 className="font-display font-bold text-xl text-forest-950 mb-3">3. Regulatory Compliance &amp; Standards</h2>
-            <p>
+            <p className="mb-4">
               Our consultancy practice adheres to the professional standards prescribed by the Institute of Architects Bangladesh (IAB), the Institute of Engineers Bangladesh (IEB), and the Rajdhani Unnayan Kartripakkha (RAJUK).
             </p>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              {[
+                { acronym: 'IAB', name: 'Institute of Architects Bangladesh', logo: '/images/memberships/iab-logo.png' },
+                { acronym: 'IEB', name: 'Institute of Engineers Bangladesh', logo: '/images/memberships/ieb-logo.png' },
+                { acronym: 'RAJUK', name: 'Rajdhani Unnayan Kartripakkha', logo: '/images/memberships/rajuk-logo.png' },
+              ].map((m) => (
+                <div
+                  key={m.acronym}
+                  className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-sand-50 border border-forest-100 text-xs font-semibold text-forest-950"
+                >
+                  <div className="relative w-6 h-6 rounded-md bg-white p-0.5 flex items-center justify-center overflow-hidden shrink-0 shadow-xs">
+                    <Image
+                      src={m.logo}
+                      alt={`${m.acronym} logo`}
+                      width={24}
+                      height={24}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                  <span>{m.name} ({m.acronym})</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div>

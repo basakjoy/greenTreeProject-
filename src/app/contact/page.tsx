@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 import { SocialMediaPlatforms } from '@/components/ui/SocialMediaPlatforms';
 
@@ -79,9 +80,33 @@ export default function ContactPage() {
                 <h2 className="font-display font-bold text-2xl text-forest-950 mt-1 mb-4">
                   Studio Headquarters
                 </h2>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3">
                   Green Tree Building Consultants Ltd. operates as a registered private limited company with IAB, IEB, and RAJUK.
                 </p>
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  {[
+                    { acronym: 'IAB', title: 'Institute of Architects Bangladesh', logo: '/images/memberships/iab-logo.png' },
+                    { acronym: 'IEB', title: 'Institute of Engineers Bangladesh', logo: '/images/memberships/ieb-logo.png' },
+                    { acronym: 'RAJUK', title: 'Rajdhani Unnayan Kartripakkha', logo: '/images/memberships/rajuk-logo.png' },
+                  ].map((m) => (
+                    <div
+                      key={m.acronym}
+                      title={m.title}
+                      className="inline-flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-sand-50 border border-forest-100 shadow-sm"
+                    >
+                      <div className="relative w-5 h-5 rounded-md bg-white p-0.5 flex items-center justify-center overflow-hidden shrink-0">
+                        <Image
+                          src={m.logo}
+                          alt={`${m.acronym} logo`}
+                          width={20}
+                          height={20}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                      <span className="text-[11px] font-bold text-forest-950">{m.acronym}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-5 pt-4 border-t border-forest-100 text-xs sm:text-sm">

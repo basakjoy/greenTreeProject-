@@ -225,7 +225,7 @@ export function LeadershipSection() {
                 className="rv absolute top-4 right-4"
                 style={reveal(900)}
               >
-                <div className="badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-950/85 backdrop-blur-md border border-forest-700/80 text-[11px] font-bold text-emerald-300 shadow-lg">
+                <div className="badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-950/85 backdrop-blur-md border border-forest-700/80 text-[11px] font-bold text-eco-300 shadow-lg">
                   <Award className="w-3.5 h-3.5 text-eco" />
                   <span>LEED Platinum Accredited</span>
                 </div>

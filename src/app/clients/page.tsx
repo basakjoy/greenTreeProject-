@@ -86,7 +86,7 @@ export default async function ClientsPage() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-forest-100 flex items-center justify-between text-xs font-semibold text-forest-900">
-                <span className="flex items-center gap-1.5 text-emerald-800">
+                <span className="flex items-center gap-1.5 text-eco-800">
                   <CheckCircle2 className="w-3.5 h-3.5 text-eco" />
                   Verified Engagement
                 </span>

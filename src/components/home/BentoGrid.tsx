@@ -56,7 +56,7 @@ export function BentoGrid() {
             <p className="text-sm text-forest-900 font-semibold mt-2 leading-relaxed">
               &ldquo;To provide a standard group of high-value-added cost reduction and design services to clients who want to buy quickly and value, not price.&rdquo;
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-emerald-800">
+            <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-eco-800">
               <span className="w-2 h-2 rounded-full bg-eco" />
               <span>Sought out by renowned organizations</span>
             </div>
@@ -129,10 +129,37 @@ export function BentoGrid() {
               <h4 className="font-display font-bold text-lg text-white mt-1">
                 Highest standards of professionalism & integrity
               </h4>
+              <p className="text-xs text-gray-300 mt-2 leading-relaxed">
+                Registered with IAB, IEB &amp; RAJUK.
+              </p>
+              <div className="flex items-center gap-2 mt-4">
+                {[
+                  { acronym: 'IAB', name: 'Institute of Architects Bangladesh', logo: '/images/memberships/iab-logo.png' },
+                  { acronym: 'IEB', name: 'Institute of Engineers Bangladesh', logo: '/images/memberships/ieb-logo.png' },
+                  { acronym: 'RAJUK', name: 'Rajdhani Unnayan Kartripakkha', logo: '/images/memberships/rajuk-logo.png' },
+                ].map((m) => (
+                  <div
+                    key={m.acronym}
+                    title={m.name}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-forest-900 border border-forest-750"
+                  >
+                    <div className="relative w-4 h-4 bg-white rounded-sm p-0.5 flex items-center justify-center overflow-hidden shrink-0">
+                      <Image
+                        src={m.logo}
+                        alt={`${m.acronym} logo`}
+                        width={16}
+                        height={16}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                    <span className="text-[10px] font-bold text-gray-200">{m.acronym}</span>
+                  </div>
+                ))}
+              </div>
             </div>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center justify-between w-full p-3 rounded-2xl bg-forest-900 hover:bg-forest-850 border border-forest-750 text-xs font-semibold text-emerald-300 group transition-all"
+              className="mt-6 inline-flex items-center justify-between w-full p-3 rounded-2xl bg-forest-900 hover:bg-forest-850 border border-forest-750 text-xs font-semibold text-eco-300 group transition-all"
             >
               <span>Initiate a project consultation</span>
               <ChevronRight className="w-4 h-4 text-eco group-hover:translate-x-1 transition-transform" />
